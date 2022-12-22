@@ -204,36 +204,54 @@
 			</div>
 			<div class="modal-body">
 				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_nama">Nama</label>
+					<label for="nik">NIK</label>
+					<input type="number" class="form-control" name="nik" id="lihat_nik" placeholder="NIK"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="nama">Nama</label>
 					<input type="text" class="form-control" name="nama" id="lihat_nama" placeholder="Nama anggota"
 						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_tempat">Tempat Lahir</label>
-					<input type="text" class="form-control" name="tempat_lahir" id="lihat_tempat" value=""
-						   placeholder="Tempat Lahir" autocomplete="off" readonly>
+					<label for="no_anggota">No. Anggota</label>
+					<input type="number" class="form-control" name="no_anggota" id="lihat_no_anggota" placeholder="No Anggota"
+						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_tl">Tanggal Lahir</label>
-					<div class='input-group'>
-						<input type="date" class="form-control" name="tanggal_lahir" id="lihat_tl"
-							   placeholder="Tanggal Lahir" autocomplete="off" readonly>
-						<div class="input-group-append">
-										<span class="input-group-text">
-											<span class="ft-calendar"></span>
-										</span>
-						</div>
-					</div>
+					<label for="no_anggota">Jenis Kelamin</label>
+					<input type="text" class="form-control" name="no_anggota" id="lihat_jenis_kelamin" placeholder="No Anggota"
+						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_alamat">Alamat</label>
+					<label for="pekerjaan">Pekerjaan</label>
+					<input type="text" class="form-control" name="pekerjaan" id="lihat_pekerjaan" placeholder="Pekerjaan"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="alamat">Alamat</label>
 					<textarea class="form-control" id="lihat_alamat" rows="3" name="alamat" placeholder="Alamat"
 							  autocomplete="off" readonly></textarea>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_tg">Tanggal Bergabung</label>
+					<label for="desa">Desa</label>
+					<input type="text" class="form-control" name="desa" id="lihat_desa" placeholder="Desa"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="kecamatan">Kecamatan</label>
+					<input type="text" class="form-control" name="kecamatan" id="lihat_kecamatan" placeholder="Kecamatan"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="kabupaten">Kabupaten/Kota</label>
+					<input type="text" class="form-control" name="kabupaten" id="lihat_kabupaten" placeholder="Kabupaten"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
-						<input type="date" class="form-control" id="lihat_tg" name="tanggal_gabung"
+						<input type="date" class="form-control" id="lihat_tanggal_gabung" name="tanggal_gabung"
 							   placeholder="Tanggal Bergabung" autocomplete="off" readonly>
 						<div class="input-group-append">
 										<span class="input-group-text">
@@ -241,26 +259,6 @@
 										</span>
 						</div>
 					</div>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_jabatan_anggota">Jabatan</label>
-					<input type="text" class="form-control" name="jabatan" id="lihat_jabatan_anggota"
-						   placeholder="Jabatan" autocomplete="off" readonly>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_gaji_pokok">Gaji Perhari</label>
-					<input type="text" class="form-control" name="jabatan" id="lihat_gaji_pokok"
-						   placeholder="Gaji pokok" autocomplete="off" readonly>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_nohp">Nomor HP</label>
-					<input type="number" class="form-control" id="lihat_nohp" name="nomor_hp" placeholder="Nomor HP"
-						   autocomplete="off" readonly>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="lihat_norek">Nomor Rekening</label>
-					<input type="number" class="form-control" id="lihat_norek" name="nomor_rekening" placeholder="Nomor rekening boleh kosong"
-						   autocomplete="off" readonly>
 				</fieldset>
 			</div>
 			<div class="modal-footer">
@@ -286,66 +284,68 @@
 			<?= form_open('anggota/update') ?>
 			<div class="modal-body">
 				<fieldset class="form-group floating-label-form-group">
-					<label for="edit_nama">Nama</label>
-					<input type="hidden" id="anggota_id" name="id">
+					<label for="nik">NIK</label>
+					<input type="number" class="form-control" name="nik" id="edit_nik" placeholder="NIK"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="nama">Nama</label>
 					<input type="text" class="form-control" name="nama" id="edit_nama" placeholder="Nama anggota"
-						   autocomplete="off" required>
+						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="edit_tempat">Tempat Lahir</label>
-					<input type="text" class="form-control" name="tempat_lahir" id="edit_tempat" placeholder="Tempat Lahir"
-						   autocomplete="off" required>
+					<label for="no_anggota">No. Anggota</label>
+					<input type="number" class="form-control" name="no_anggota" id="edit_no_anggota" placeholder="No Anggota"
+						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="edit_tl">Tanggal Lahir</label>
-					<div class='input-group'>
-						<input type="date" class="form-control" name="tanggal_lahir" id="edit_tl" placeholder="Tanggal Lahir"
-							   autocomplete="off" required>
-						<div class="input-group-append">
-										<span class="input-group-text">
-											<span class="ft-calendar"></span>
-										</span>
-						</div>
-					</div>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="edit_alamat">Alamat</label>
-					<textarea class="form-control" id="edit_alamat" rows="3" name="alamat" placeholder="Alamat"
-							  autocomplete="off" required></textarea>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="edit_tg">Tanggal Bergabung</label>
-					<div class='input-group'>
-						<input type="date" class="form-control" id="edit_tg" name="tanggal_gabung"
-							   placeholder="Tanggal Bergabung" autocomplete="off" required>
-						<div class="input-group-append">
-							<span class="input-group-text">
-								<span class="ft-calendar"></span>
-							</span>
-						</div>
-					</div>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="jabatan">Jabatan</label>
-					<select name="jabatan" id="jabatan" class="select2 form-control" style="width: 100%">
+					<label for="jenis_kelamin">Jenis Kelamin</label>
+					<select name="edit_jenis_kelamin" id="basicSelect" class="form-control">
 						<?php
-						foreach ($jabatan as $key => $value):
+						foreach ($anggota as $value):
 							?>
-							<option value="<?= $value['jabatan_id'] ?>"><?= $value['jabatan_nama'] ?></option>
+							<option value="<?= $value['jenis_kelamin'] ?>"><?= $value['jenis_kelamin'] ?></option>
 						<?php
 						endforeach;
 						?>
 					</select>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="edit_nohp">Nomor HP</label>
-					<input type="number" class="form-control" id="edit_nohp" name="nomor_hp" placeholder="Nomor HP"
-						   autocomplete="off" required>
+					<label for="pekerjaan">Pekerjaan</label>
+					<input type="text" class="form-control" name="pekerjaan" id="edit_pekerjaan" placeholder="Pekerjaan"
+						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="edit_norek">Nomor Rekening</label>
-					<input type="number" class="form-control" id="edit_norek" name="nomor_rekening" placeholder="Nomor rekening boleh kosong"
-						   autocomplete="off">
+					<label for="alamat">Alamat</label>
+					<textarea class="form-control" id="edit_alamat" rows="3" name="alamat" placeholder="Alamat"
+							  autocomplete="off" readonly></textarea>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="desa">Desa</label>
+					<input type="text" class="form-control" name="desa" id="edit_desa" placeholder="Desa"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="kecamatan">Kecamatan</label>
+					<input type="text" class="form-control" name="kecamatan" id="edit_kecamatan" placeholder="Kecamatan"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="kabupaten">Kabupaten/Kota</label>
+					<input type="text" class="form-control" name="kabupaten" id="edit_kabupaten" placeholder="Kabupaten"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="tanggal_gabung">Tanggal Bergabung</label>
+					<div class='input-group'>
+						<input type="date" class="form-control" id="edit_tanggal_gabung" name="tanggal_gabung"
+							   placeholder="Tanggal Bergabung" autocomplete="off" readonly>
+						<div class="input-group-append">
+										<span class="input-group-text">
+											<span class="ft-calendar"></span>
+										</span>
+						</div>
+					</div>
 				</fieldset>
 			</div>
 			<div class="modal-footer">

@@ -19,7 +19,6 @@ class AnggotaController extends CI_Controller{
     public function index(){
     	$data = array(
     		'anggota' => $this->AnggotaModel->lihat_anggota(),
-			'jabatan' => $this->JabatanModel->lihat_jabatan(),
 			'title' => 'Anggota'
 		);
 		$this->load->view('templates/header',$data);

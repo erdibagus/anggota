@@ -13,6 +13,64 @@ $(document).ready(function () {
 	// jabatan
 	// ------------------------------------------------------------------------------------------
 
+	$('.anggota-lihat').click(function (e) {
+		e.preventDefault();
+		var id = $(this).val();
+		var getUrl = root + 'anggota/lihat/' + id;
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				if (response != null){
+					$('#lihat_nik').val(response.anggota_id);
+					$('#lihat_nama').val(response.nama);
+					$('#lihat_no_anggota').val(response.no_anggota);
+					$('#lihat_jenis_kelamin').val(response.jenis_kelamin);
+					$('#lihat_pekerjaan').val(response.pekerjaan);
+					$('#lihat_alamat').val(response.alamat);
+					$('#lihat_desa').val(response.desa);
+					$('#lihat_kecamatan').val(response.kecamatan);
+					$('#lihat_kabupaten').val(response.kabupaten);
+					$('#lihat_tanggal_gabung').val(response.tanggal_gabung);
+					console.log(response);
+				}
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
+	});
+
+	$('.anggota-edit').click(function (e) {
+		e.preventDefault();
+		var id = $(this).val();
+		var getUrl = root + 'anggota/lihat/' + id;
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				if (response != null){
+					$('#edit_nik').val(response.anggota_id);
+					$('#edit_nama').val(response.nama);
+					$('#edit_no_anggota').val(response.no_anggota);
+					$('#edit_jenis_kelamin').val(response.jenis_kelamin);
+					$('#edit_pekerjaan').val(response.pekerjaan);
+					$('#edit_alamat').val(response.alamat);
+					$('#edit_desa').val(response.desa);
+					$('#edit_kecamatan').val(response.kecamatan);
+					$('#edit_kabupaten').val(response.kabupaten);
+					$('#edit_tanggal_gabung').val(response.tanggal_gabung);
+					console.log(response);
+				}
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
+	});
+
 	$('.gaji-edit').click(function () {
 		var id = $(this).val();
 		var getUrl = root + 'jabatan/updateForm/' + id;
