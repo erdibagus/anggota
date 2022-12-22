@@ -11,7 +11,7 @@
 	<meta name="keywords"
 		  content="admin template, Chameleon admin template, dashboard template, gradient admin template, responsive admin template, webapp, eCommerce dashboard, analytic dashboard">
 	<meta name="author" content="ThemeSelect">
-	<title><?=$title?> - Selkom Group</title>
+	<title><?=$title?> - SEKARTAMA</title>
 	<link rel="apple-touch-icon" href="<?= base_url() ?>assets/images/ico/apple-icon-120.png">
 	<link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/images/logo/63-512.png">
 	<link
@@ -48,9 +48,29 @@
 
 </head>
 <!-- END: Head-->
-
+<style>
+.bg-img {
+    background: url("<?= base_url('assets/images/backgrounds/bg-16.jpeg'); ?>");
+    height: 150vh;
+    background-size: cover;
+    background-position: center;
+}
+.content1 {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 999;
+    width: 370px;
+    text-align: center;
+    padding: 60px 32px;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+}
+</style>
 <!-- BEGIN: Body-->
-<body class="vertical-layout vertical-menu 1-column  bg-full-screen-image blank-page blank-page" data-open="click"
+<body class="vertical-layout vertical-menu bg-img 1-column blank-page blank-page" data-open="click"
 	  data-menu="vertical-menu" data-color="bg-gradient-x-purple-blue" data-col="1-column">
 <!-- BEGIN: Content-->
 <div class="app-content content">
@@ -62,15 +82,17 @@
 			<section class="flexbox-container">
 				<div class="col-12 d-flex align-items-center justify-content-center">
 					<div class="col-lg-4 col-md-6 col-10 box-shadow-2 p-0">
-
-						<div class="card border-grey border-lighten-3 px-1 py-1 m-0">
-							<div class="card-header border-0">
-								<div class="text-center mb-1">
-									<img src="<?= base_url() ?>assets/images/logo/images.png" alt="branding logo">
+					<div class="content1">
+						<div class="border-grey border-lighten-3 px-1 py-1 m-0">
+							<div class="border-0">
+								<div class="text-center mb-2">
+									<img src="<?= base_url() ?>assets/images/logo/sekartama.png" alt="branding logo">
 								</div>
-								<div class="font-large-1  text-center">
-									Login
+								<hr class="bg-white">
+								<div class="h1 font-weight-bold text-center text-white">
+									Data Anggota
 								</div>
+								<hr class="bg-white">
 							</div>
 							<div class="card-content">
 								<div class="card-body">
@@ -119,7 +141,7 @@
 									</div>
 									<div class="form-group text-center">
 										<button type="submit"
-												class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1"
+												class="btn round btn-block btn-glow btn-bg-gradient-x-orange-yellow col-12 mr-1 mb-1"
 												name="login">Login
 										</button>
 									</div>
@@ -127,7 +149,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div></div>
 				</div>
 			</section>
 
