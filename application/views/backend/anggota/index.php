@@ -43,7 +43,7 @@
 			<hr>
 			<div class="card-body">
 				<div class="table-responsive">
-					<table class="table table-bordered zero-configuration">
+					<table class="table table-bordered zero-configuration" width="100%">
 						<thead>
 						<tr>
 							<th>No</th>
@@ -82,7 +82,7 @@
 										class="btn btn-success btn-sm  btn-bg-gradient-x-purple-blue box-shadow-2 anggota-lihat"
 										data-toggle="modal" data-target="#lihat" value="<?= $value['anggota_id'] ?>"
 										title="Lihat selengkapnya"><i class="ft-eye"></i></button>
-									<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
+									
 									<button
 										class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 anggota-edit"
 										data-toggle="modal" data-target="#ubah" value="<?= $value['anggota_id'] ?>"
@@ -91,7 +91,7 @@
 										class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 anggota-hapus"
 										data-toggle="modal" data-target="#hapus" value="<?= $value['anggota_id'] ?>"
 										title="Hapus data anggota"><i class="ft-trash"></i></button>
-									<?php endif;?>
+									
 								</td>
 							</tr>
 							<?php
@@ -136,7 +136,7 @@
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="jenis_kelamin">Jenis Kelamin</label>
-					<select name="jenis_kelamin" id="basicSelect" class="form-control">
+					<select name="jenis_kelamin" id="basicSelect" class="form-control" required>
 						<option value="">--Pilih--</option>
 						<option value="L">Laki Laki</option>
 						<option value="P">Perempuan</option>
@@ -197,7 +197,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="modal-title" id="myModalLabel35"> Lihat Data anggota</h3>
+				<h3 class="modal-title" id="myModalLabel35"> Lihat Data Anggota</h3>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -276,7 +276,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h3 class="modal-title" id="myModalLabel35"> Update Data anggota</h3>
+				<h3 class="modal-title" id="myModalLabel35"> Update Data Anggota</h3>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -286,60 +286,56 @@
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nik">NIK</label>
 					<input type="number" class="form-control" name="nik" id="edit_nik" placeholder="NIK"
-						   autocomplete="off" readonly>
+						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nama">Nama</label>
 					<input type="text" class="form-control" name="nama" id="edit_nama" placeholder="Nama anggota"
-						   autocomplete="off" readonly>
+						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="no_anggota">No. Anggota</label>
 					<input type="number" class="form-control" name="no_anggota" id="edit_no_anggota" placeholder="No Anggota"
-						   autocomplete="off" readonly>
+						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="jenis_kelamin">Jenis Kelamin</label>
-					<select name="edit_jenis_kelamin" id="basicSelect" class="form-control">
-						<?php
-						foreach ($anggota as $value):
-							?>
-							<option value="<?= $value['jenis_kelamin'] ?>"><?= $value['jenis_kelamin'] ?></option>
-						<?php
-						endforeach;
-						?>
+					<select name="jenis_kelamin" id="edit_jenis_kelamin" class="form-control" required>
+						<option value="">--Pilih--</option>
+						<option value="L">L</option>
+						<option value="P">P</option>
 					</select>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="pekerjaan">Pekerjaan</label>
 					<input type="text" class="form-control" name="pekerjaan" id="edit_pekerjaan" placeholder="Pekerjaan"
-						   autocomplete="off" readonly>
+						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="alamat">Alamat</label>
 					<textarea class="form-control" id="edit_alamat" rows="3" name="alamat" placeholder="Alamat"
-							  autocomplete="off" readonly></textarea>
+							  autocomplete="off" required></textarea>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="desa">Desa</label>
 					<input type="text" class="form-control" name="desa" id="edit_desa" placeholder="Desa"
-						   autocomplete="off" readonly>
+						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="kecamatan">Kecamatan</label>
 					<input type="text" class="form-control" name="kecamatan" id="edit_kecamatan" placeholder="Kecamatan"
-						   autocomplete="off" readonly>
+						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="kabupaten">Kabupaten/Kota</label>
 					<input type="text" class="form-control" name="kabupaten" id="edit_kabupaten" placeholder="Kabupaten"
-						   autocomplete="off" readonly>
+						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
 						<input type="date" class="form-control" id="edit_tanggal_gabung" name="tanggal_gabung"
-							   placeholder="Tanggal Bergabung" autocomplete="off" readonly>
+							   placeholder="Tanggal Bergabung" autocomplete="off" required>
 						<div class="input-group-append">
 										<span class="input-group-text">
 											<span class="ft-calendar"></span>

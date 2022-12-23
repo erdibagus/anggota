@@ -71,6 +71,13 @@ $(document).ready(function () {
 		});
 	});
 
+	$('.anggota-hapus').click(function () {
+		var id = $(this).val();
+		var html = '' +
+			'<a href="'+root+'anggota/hapus/'+id+'" class="btn btn-danger btn-bg-gradient-x-red-pink">Hapus</a>';
+		$('#hapusanggota').html(html);
+	});
+
 	$('.gaji-edit').click(function () {
 		var id = $(this).val();
 		var getUrl = root + 'jabatan/updateForm/' + id;

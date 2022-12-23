@@ -68,24 +68,27 @@ class AnggotaController extends CI_Controller{
 
 	public function update(){
 		if (isset($_POST['update'])){
-			$id = $this->input->post('id');
+			$id = $this->input->post('nik');
 			$nama = $this->input->post('nama');
-			$tempatLahir = $this->input->post('tempat_lahir');
-			$tanggalLahir = $this->input->post('tanggal_lahir');
+			$no_anggota = $this->input->post('no_anggota');
+			$jenis_kelamin = $this->input->post('jenis_kelamin');
+			$pekerjaan = $this->input->post('pekerjaan');
 			$alamat = $this->input->post('alamat');
-			$tanggalGabung = $this->input->post('tanggal_gabung');
-			$gajiId = $this->input->post('jabatan');
-			$nomorHp = $this->input->post('nomor_hp');
-			$nomorRek = $this->input->post('nomor_rekening');
+			$desa = $this->input->post('desa');
+			$kecamatan = $this->input->post('kecamatan');
+			$kabupaten = $this->input->post('kabupaten');
+			$tanggal_gabung = $this->input->post('tanggal_gabung');
 			$data = array(
-				'anggota_nama' => $nama,
-				'anggota_tempat_lahir' => $tempatLahir,
-				'anggota_tanggal_lahir' => $tanggalLahir,
-				'anggota_alamat' => $alamat,
-				'anggota_tanggal_gabung' => $tanggalGabung,
-				'anggota_nomor_hp' => $nomorHp,
-				'anggota_no_rekening' => $nomorRek,
-				'anggota_jabatan_id' => $gajiId
+				'anggota_id' => $id,
+				'nama' => $nama,
+				'no_anggota' => $no_anggota,
+				'jenis_kelamin' => $jenis_kelamin,
+				'pekerjaan' => $pekerjaan,
+				'alamat' => $alamat,
+				'desa' => $desa,
+				'kecamatan' => $kecamatan,
+				'kabupaten' => $kabupaten,
+				'tanggal_gabung' => $tanggal_gabung
 			);
 			$save = $this->AnggotaModel->update_anggota($id,$data);
 			if ($save>0){

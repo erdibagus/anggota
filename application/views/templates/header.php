@@ -135,7 +135,7 @@
 					href="<?= base_url('dashboard') ?>"><i class="ft-home"></i><span class="menu-title"
 																					 data-i18n="">Dashboard</span></a>
 			</li>
-			<li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title"
+			<!-- <li class=" nav-item"><a href="#"><i class="ft-layers"></i><span class="menu-title"
 																			 data-i18n="">Data Master</span></a>
 				<ul class="menu-content">
 					<li class="<?php if ($this->uri->segment(1) == 'karyawan') echo 'active' ?>"><a
@@ -149,7 +149,7 @@
 								class="ft-award"></i> Data Jabatan</a>
 					</li>
 				</ul>
-			</li>
+			</li> -->
 			<li class=" nav-item <?php if ($this->uri->segment(1) == 'anggota') echo 'active' ?>"><a
 					href="<?= base_url('anggota') ?>"><i class="ft-user-check"></i><span class="menu-title"
 																					   data-i18n="">Anggota</span></a>
@@ -165,11 +165,11 @@
 			<li class=" nav-item <?php if ($this->uri->segment(1) == 'pinjam') echo 'active' ?>"><a
 					href="<?= base_url('pinjam') ?>"><i class="ft-calendar"></i><span class="menu-title"
 																					  data-i18n="">Pinjaman</span></a>
-			</li> -->
+			</li>
 			<li class=" nav-item"><a href="<?= base_url('laporan') ?>"><i class="ft-file"></i><span
 						class="menu-title"
 						data-i18n="">Laporan</span></a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 </div>
