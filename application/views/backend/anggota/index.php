@@ -43,7 +43,7 @@
 			<hr>
 			<div class="card-body">
 				<div class="table-responsive">
-					<table class="table table-bordered zero-configuration" width="100%">
+					<table class="table table-bordered zero-configuration" id="tabel" width="100%">
 						<thead>
 						<tr>
 							<th>No</th>
@@ -61,7 +61,7 @@
 						</tr>
 						</thead>
 						<tbody>
-						<?php
+						<!-- <?php
 						$no = 1;
 						foreach ($anggota as $key => $value):
 							?>
@@ -97,7 +97,7 @@
 							<?php
 							$no++;
 						endforeach;
-						?>
+						?> -->
 						</tbody>
 					</table>
 				</div>
@@ -374,3 +374,34 @@
 		</div>
 	</div>
 </div>
+<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
+<script type="text/javascript"> 
+var table;  
+ $(document).ready(function() {
+  
+     //datatables
+     table = $('#tabel').DataTable({ 
+  
+         "processing": true, //Feature control the processing indicator.
+         "serverSide": true, //Feature control DataTables' server-side processing mode.
+         "order": [], //Initial no order.
+         lengthChange: false,
+  
+         // Load data for the table's content from an Ajax source
+         "ajax": {
+             "url": "<?php echo site_url('anggota/ajax_list')?>",
+             "type": "POST"
+         },
+  
+         //Set column definition initialisation properties.
+         "columnDefs": [
+         { 
+             "targets": [ -1 ], //first column / numbering column
+             "orderable": false, //set not orderable
+         },
+         ],
+  
+     });
+
+ });
+ </script>

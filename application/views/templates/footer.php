@@ -164,6 +164,9 @@
 <script src="<?= base_url()?>assets/js/scripts/easy-autocomplete/jquery.easy-autocomplete.min.js"></script>
 
 <script src="<?= base_url()?>assets/js/core/anggota.js" type="text/javascript"></script>
+
+<script src="<?= base_url(); ?>assets/sbadmin/vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url(); ?>assets/sbadmin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <!-- END: Page JS-->
 
 </body>

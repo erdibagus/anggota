@@ -26,6 +26,44 @@ class AnggotaController extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+	public function ajax_list()
+    {
+        $list = $this->AnggotaModel->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $p) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $p->anggota_id;
+            $row[] = $p->nama;
+            $row[] = $p->no_anggota;
+            $row[] = $p->jenis_kelamin;
+            $row[] = $p->pekerjaan;
+            $row[] = $p->alamat;
+            $row[] = $p->desa;
+            $row[] = $p->kecamatan;
+            $row[] = $p->kabupaten;
+            $row[] = $p->tanggal_gabung;
+            $row[] = '
+			<button
+				class="btn btn-success btn-sm  btn-bg-gradient-x-purple-blue box-shadow-2 anggota-lihat"
+				data-toggle="modal" data-target="#lihat" value="'.$p->anggota_id.'"
+				title="Lihat selengkapnya"><i class="ft-eye"></i></button>';
+ 
+            $data[] = $row;
+        }
+ 
+        $output = array(
+                        "draw" => $_POST['draw'],
+                        "recordsTotal" => $this->AnggotaModel->count_all(),
+                        "recordsFiltered" => $this->AnggotaModel->count_filtered(),
+                        "data" => $data,
+                );
+        //output to json format
+        echo json_encode($output);
+    }
+
 	public function tambah(){
     	if (isset($_POST['simpan'])){
 			$id = $this->input->post('nik');
