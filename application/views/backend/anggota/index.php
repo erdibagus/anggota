@@ -61,43 +61,7 @@
 						</tr>
 						</thead>
 						<tbody>
-						<!-- <?php
-						$no = 1;
-						foreach ($anggota as $key => $value):
-							?>
-							<tr>
-								<td><?= $no ?></td>
-								<td><?= $value['anggota_id'] ?></td>
-								<td><?= $value['nama'] ?></td>
-								<td><?= $value['no_anggota'] ?></td>
-								<td><?= $value['jenis_kelamin'] ?></td>
-								<td><?= $value['pekerjaan'] ?></td>
-								<td><?= $value['alamat'] ?></td>
-								<td><?= $value['desa'] ?></td>
-								<td><?= $value['kecamatan'] ?></td>
-								<td><?= $value['kabupaten'] ?></td>
-								<td><?= date_indo($value['tanggal_gabung']) ?></td>
-								<td>
-									<button
-										class="btn btn-success btn-sm  btn-bg-gradient-x-purple-blue box-shadow-2 anggota-lihat"
-										data-toggle="modal" data-target="#lihat" value="<?= $value['anggota_id'] ?>"
-										title="Lihat selengkapnya"><i class="ft-eye"></i></button>
-									
-									<button
-										class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 anggota-edit"
-										data-toggle="modal" data-target="#ubah" value="<?= $value['anggota_id'] ?>"
-										title="Update data anggota"><i class="ft-edit"></i></button>
-									<button
-										class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 anggota-hapus"
-										data-toggle="modal" data-target="#hapus" value="<?= $value['anggota_id'] ?>"
-										title="Hapus data anggota"><i class="ft-trash"></i></button>
-									
-								</td>
-							</tr>
-							<?php
-							$no++;
-						endforeach;
-						?> -->
+
 						</tbody>
 					</table>
 				</div>
@@ -374,8 +338,11 @@
 		</div>
 	</div>
 </div>
+
 <script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
+
 <script type="text/javascript"> 
+
 var table;  
  $(document).ready(function() {
   
@@ -404,4 +371,66 @@ var table;
      });
 
  });
- </script>
+
+function konfirmasi(id) {
+	var html = '' +
+			'<a href="anggota/hapus/'+id+'" class="btn btn-danger btn-bg-gradient-x-red-pink">Hapus</a>';
+		$('#hapusanggota').html(html);
+	}
+
+function lihat(id) {
+	var getUrl = 'anggota/lihat/' + id;
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				if (response != null){
+					$('#lihat_nik').val(response.anggota_id);
+					$('#lihat_nama').val(response.nama);
+					$('#lihat_no_anggota').val(response.no_anggota);
+					$('#lihat_jenis_kelamin').val(response.jenis_kelamin);
+					$('#lihat_pekerjaan').val(response.pekerjaan);
+					$('#lihat_alamat').val(response.alamat);
+					$('#lihat_desa').val(response.desa);
+					$('#lihat_kecamatan').val(response.kecamatan);
+					$('#lihat_kabupaten').val(response.kabupaten);
+					$('#lihat_tanggal_gabung').val(response.tanggal_gabung);
+					console.log(response);
+				}
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
+	}
+
+function edit(id) {
+	var getUrl = 'anggota/lihat/' + id;
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				if (response != null){
+					$('#edit_nik').val(response.anggota_id);
+					$('#edit_nama').val(response.nama);
+					$('#edit_no_anggota').val(response.no_anggota);
+					$('#edit_jenis_kelamin').val(response.jenis_kelamin);
+					$('#edit_pekerjaan').val(response.pekerjaan);
+					$('#edit_alamat').val(response.alamat);
+					$('#edit_desa').val(response.desa);
+					$('#edit_kecamatan').val(response.kecamatan);
+					$('#edit_kabupaten').val(response.kabupaten);
+					$('#edit_tanggal_gabung').val(response.tanggal_gabung);
+					console.log(response);
+				}
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
+	}
+
+</script>
+

@@ -13,34 +13,6 @@ $(document).ready(function () {
 	// jabatan
 	// ------------------------------------------------------------------------------------------
 
-	$('.anggota-lihat').click(function (e) {
-		e.preventDefault();
-		var id = $(this).val();
-		var getUrl = root + 'anggota/lihat/' + id;
-		$.ajax({
-			url : getUrl,
-			type : 'ajax',
-			dataType : 'json',
-			success: function (response) {
-				if (response != null){
-					$('#lihat_nik').val(response.anggota_id);
-					$('#lihat_nama').val(response.nama);
-					$('#lihat_no_anggota').val(response.no_anggota);
-					$('#lihat_jenis_kelamin').val(response.jenis_kelamin);
-					$('#lihat_pekerjaan').val(response.pekerjaan);
-					$('#lihat_alamat').val(response.alamat);
-					$('#lihat_desa').val(response.desa);
-					$('#lihat_kecamatan').val(response.kecamatan);
-					$('#lihat_kabupaten').val(response.kabupaten);
-					$('#lihat_tanggal_gabung').val(response.tanggal_gabung);
-					console.log(response);
-				}
-			},
-			error: function (response) {
-				console.log(response.status + 'error');
-			}
-		});
-	});
 
 	$('.anggota-edit').click(function (e) {
 		e.preventDefault();
@@ -69,13 +41,6 @@ $(document).ready(function () {
 				console.log(response.status + 'error');
 			}
 		});
-	});
-
-	$('.anggota-hapus').click(function () {
-		var id = $(this).val();
-		var html = '' +
-			'<a href="'+root+'anggota/hapus/'+id+'" class="btn btn-danger btn-bg-gradient-x-red-pink">Hapus</a>';
-		$('#hapusanggota').html(html);
 	});
 
 	$('.gaji-edit').click(function () {
@@ -123,33 +88,7 @@ $(document).ready(function () {
 	// karyawan
 	// ------------------------------------------------------------------------------------------
 
-	$('.karyawan-lihat').click(function (e) {
-		e.preventDefault();
-		var id = $(this).val();
-		var getUrl = root + 'karyawan/lihat/' + id;
-		$.ajax({
-			url : getUrl,
-			type : 'ajax',
-			dataType : 'json',
-			success: function (response) {
-				if (response != null){
-					$('#lihat_nama').val(response.karyawan_nama);
-					$('#lihat_tempat').val(response.karyawan_tempat_lahir);
-					$('#lihat_tl').val(response.karyawan_tanggal_lahir);
-					$('#lihat_alamat').val(response.karyawan_alamat);
-					$('#lihat_nohp').val(response.karyawan_nomor_hp);
-					$('#lihat_norek').val(response.karyawan_no_rekening);
-					$('#lihat_tg').val(response.karyawan_tanggal_gabung);
-					$('#lihat_jabatan_karyawan').val(response.jabatan_nama);
-					$('#lihat_gaji_pokok').val(formatRupiah(response.jabatan_gaji,'Rp. '));
-					console.log(response);
-				}
-			},
-			error: function (response) {
-				console.log(response.status + 'error');
-			}
-		});
-	});
+	
 
 	// ------------------------------------------------------------------------------------------
 
@@ -550,6 +489,8 @@ function terbilang(s){
 	}
 	return kalimat;
 }
+
+
 
 function date_indo(s) {
 	var string = s;

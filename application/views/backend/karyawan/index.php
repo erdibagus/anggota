@@ -56,7 +56,7 @@
 					<tbody>
 					<?php
 					$no = 1;
-					foreach ($karyawan as $key => $value):
+					foreach ($karyawan as $value):
 						?>
 						<tr>
 							<td><?= $no ?></td>
@@ -365,3 +365,36 @@
 		</div>
 	</div>
 </div>
+<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+$('.karyawan-lihat').click(function (e) {
+		e.preventDefault();
+		var id = $(this).val();
+		var getUrl = 'karyawan/lihat/' + id;
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				if (response != null){
+					$('#lihat_nama').val(response.karyawan_nama);
+					$('#lihat_tempat').val(response.karyawan_tempat_lahir);
+					$('#lihat_tl').val(response.karyawan_tanggal_lahir);
+					$('#lihat_alamat').val(response.karyawan_alamat);
+					$('#lihat_nohp').val(response.karyawan_nomor_hp);
+					$('#lihat_norek').val(response.karyawan_no_rekening);
+					$('#lihat_tg').val(response.karyawan_tanggal_gabung);
+					$('#lihat_jabatan_karyawan').val(response.jabatan_nama);
+					$('#lihat_gaji_pokok').val(formatRupiah(response.jabatan_gaji,'Rp. '));
+					console.log(response);
+				}
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
+	});
+});
+</script>

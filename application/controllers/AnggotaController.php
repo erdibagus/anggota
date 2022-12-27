@@ -48,8 +48,16 @@ class AnggotaController extends CI_Controller{
             $row[] = '
 			<button
 				class="btn btn-success btn-sm  btn-bg-gradient-x-purple-blue box-shadow-2 anggota-lihat"
-				data-toggle="modal" data-target="#lihat" value="'.$p->anggota_id.'"
-				title="Lihat selengkapnya"><i class="ft-eye"></i></button>';
+				data-toggle="modal" data-target="#lihat" href="javascript:void(0)" onclick="lihat('."'".$p->anggota_id."'".')"
+				title="Lihat selengkapnya"><i class="ft-eye"></i></button>
+			<button
+				class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 anggota-edit"
+				data-toggle="modal" data-target="#ubah" href="javascript:void(0)" onclick="edit('."'".$p->anggota_id."'".')"
+				title="Update data anggota"><i class="ft-edit"></i></button>
+			<button
+				class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 anggota-hapus"
+				data-toggle="modal" data-target="#hapus" href="javascript:void(0)" onclick="konfirmasi('."'".$p->anggota_id."'".')"
+				title="Hapus data anggota"><i class="ft-trash"></i></button>';
  
             $data[] = $row;
         }
