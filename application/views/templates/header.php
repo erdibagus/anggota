@@ -99,7 +99,6 @@
 						<div class="dropdown-menu dropdown-menu-right">
 							<div class="arrow_box_right"><a class="dropdown-item" href="#"><span
 										class="avatar avatar-online"><strong><?= $this->session->userdata('session_nama'); ?></strong></span><br><br>
-									<?= $this->session->userdata('session_hak_akses'); ?>
 									</span></a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="<?= base_url('logout') ?>"><i class="ft-power"></i>
