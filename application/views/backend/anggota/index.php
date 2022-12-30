@@ -135,7 +135,7 @@
 					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
 						<input type="date" class="form-control" id="tanggal_gabung" name="tanggal_gabung"
-							   placeholder="Tanggal Bergabung" autocomplete="off" required>
+							   placeholder="Tanggal Bergabung" autocomplete="off">
 						<div class="input-group-append">
 										<span class="input-group-text">
 											<span class="ft-calendar"></span>
@@ -299,7 +299,7 @@
 					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
 						<input type="date" class="form-control" id="edit_tanggal_gabung" name="tanggal_gabung"
-							   placeholder="Tanggal Bergabung" autocomplete="off" required>
+							   placeholder="Tanggal Bergabung" autocomplete="off">
 						<div class="input-group-append">
 										<span class="input-group-text">
 											<span class="ft-calendar"></span>

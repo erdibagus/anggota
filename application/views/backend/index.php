@@ -10,7 +10,7 @@
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					Berhasil Login <?= $this->session->userdata('session_hak_akses'); ?>
+					Berhasil Login
 					, <?= $this->session->userdata('session_nama'); ?>
 				</div>
 			<?php

@@ -7,7 +7,7 @@ class AnggotaModel extends CI_Model{
     var $table = 'anggota';
     var $column_order = array(null, 'anggota_id', null, null, null, null, null, null, null); //set column field database for datatable orderable
     var $column_search = array('anggota_id'); //set column field database for datatable searchable 
-    var $order = array('no_anggota' => 'desc'); // default order 
+    var $order = array('no_anggota' => 'asc'); // default order 
 
 	public function __construct()
 	{
