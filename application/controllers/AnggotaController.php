@@ -6,7 +6,7 @@ class AnggotaController extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-		$model = array('JabatanModel','AnggotaModel');
+		$model = array('AnggotaModel');
 		$helper = array('tgl_indo_helper');
 		$this->load->model($model);
 		$this->load->helper($helper);
@@ -76,7 +76,7 @@ class AnggotaController extends CI_Controller{
     	if (isset($_POST['simpan'])){
 			$id = $this->input->post('nik');
 			$nama = $this->input->post('nama');
-			$no_anggota = $this->input->post('no_anggota');
+			$no_anggota = $this->AnggotaModel->buat_kode();
 			$jenis_kelamin = $this->input->post('jenis_kelamin');
 			$pekerjaan = $this->input->post('pekerjaan');
 			$alamat = $this->input->post('alamat');

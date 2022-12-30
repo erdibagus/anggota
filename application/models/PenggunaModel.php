@@ -11,7 +11,7 @@ class PenggunaModel extends CI_Model{
 	}
 
 	public function get_user_account($user){
-		$query = $this->db->get_where('sigaka_pengguna',$user);
+		$query = $this->db->get_where('pengguna',$user);
 		return $query->row_array();
 	}
 
