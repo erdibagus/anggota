@@ -94,11 +94,6 @@
 						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="no_anggota">No. Anggota</label>
-					<input type="number" class="form-control" name="no_anggota" id="no_anggota" placeholder="No Anggota"
-						   autocomplete="off" required>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
 					<label for="jenis_kelamin">Jenis Kelamin</label>
 					<select name="jenis_kelamin" id="basicSelect" class="form-control" required>
 						<option value="">--Pilih--</option>
@@ -255,11 +250,6 @@
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nama">Nama</label>
 					<input type="text" class="form-control" name="nama" id="edit_nama" placeholder="Nama anggota"
-						   autocomplete="off" required>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="no_anggota">No. Anggota</label>
-					<input type="number" class="form-control" name="no_anggota" id="edit_no_anggota" placeholder="No Anggota"
 						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
