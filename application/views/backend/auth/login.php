@@ -51,9 +51,8 @@
 <style>
 .bg-img {
     background: url("<?= base_url('assets/images/backgrounds/bg-16.jpeg'); ?>");
-    height: 150vh;
-    background-size: cover;
-    background-position: center;
+    height: 100vh;
+	background-size: cover;
 }
 .content1 {
 	position: absolute;
@@ -134,11 +133,7 @@
 											<i class="ft-lock"></i>
 										</div>
 									</fieldset>
-									<div class="form-group row">
-										<div class="col-md-6 col-12 text-center text-sm-left">
-
-										</div>
-									</div>
+								
 									<div class="form-group text-center">
 										<button type="submit"
 												class="btn round btn-block btn-glow btn-bg-gradient-x-orange-yellow col-12 mr-1 mb-1"
@@ -149,7 +144,7 @@
 								</div>
 							</div>
 						</div>
-					</div></div>
+					</div>
 				</div>
 			</section>
 

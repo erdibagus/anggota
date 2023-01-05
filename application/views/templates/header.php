@@ -153,15 +153,15 @@
 					href="<?= base_url('anggota') ?>"><i class="ft-user-check"></i><span class="menu-title"
 																					   data-i18n="">Anggota</span></a>
 			</li>
-			<!-- <li class=" nav-item <?php if ($this->uri->segment(1) == 'absen') echo 'active' ?>"><a
-					href="<?= base_url('absen') ?>"><i class="ft-user-check"></i><span class="menu-title"
-																					   data-i18n="">Absen</span></a>
+			<li class=" nav-item <?php if ($this->uri->segment(1) == 'kantor') echo 'active' ?>"><a
+					href="<?= base_url('kantor') ?>"><i class="ft-user-check"></i><span class="menu-title"
+																					   data-i18n="">Kantor</span></a>
 			</li>
-			<li class=" nav-item <?php if ($this->uri->segment(1) == 'gaji') echo 'active' ?>"><a
-					href="<?= base_url('gaji') ?>"><i class="icon-wallet"></i><span class="menu-title"
-																					data-i18n="">Gaji</span></a>
+			<li class=" nav-item <?php if ($this->uri->segment(1) == 'user') echo 'active' ?>"><a
+					href="<?= base_url('user') ?>"><i class="icon-wallet"></i><span class="menu-title"
+																					data-i18n="">User</span></a>
 			</li>
-			<li class=" nav-item <?php if ($this->uri->segment(1) == 'pinjam') echo 'active' ?>"><a
+			<!-- <li class=" nav-item <?php if ($this->uri->segment(1) == 'pinjam') echo 'active' ?>"><a
 					href="<?= base_url('pinjam') ?>"><i class="ft-calendar"></i><span class="menu-title"
 																					  data-i18n="">Pinjaman</span></a>
 			</li>

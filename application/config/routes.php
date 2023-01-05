@@ -67,14 +67,14 @@ $route['karyawan/update'] = 'KaryawanController/update';
 $route['karyawan/hapus/(:any)'] = 'KaryawanController/hapus/$1';
 $route['karyawan/ajaxIndex'] = 'KaryawanController/ajaxIndex';
 
-$route['jabatan'] = 'JabatanController';
-$route['jabatan/tambah'] = 'JabatanController/tambah';
+$route['user'] = 'UserController';
+$route['usertambah'] = 'UserController/tambah';
 $route['jabatan/updateForm/(:any)'] = 'JabatanController/updateForm/$1';
 $route['jabatan/update'] = 'JabatanController/update';
 $route['jabatan/hapus/(:any)'] = 'JabatanController/hapus/$1';
 
-$route['absen'] = 'AbsenController';
-$route['absen/tambah'] = 'AbsenController/tambah';
+$route['kantor'] = 'KantorController';
+$route['kantor/hapus/(:any)'] = 'KantorController/hapus/$1';
 $route['absen/lembur/(:any)'] = 'AbsenController/lembur/$1';
 
 $route['gaji'] = 'GajiController';

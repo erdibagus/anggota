@@ -7,7 +7,7 @@ class AuthController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$model = array('PenggunaModel');
+		$model = array('UserModel');
 		$this->load->model($model);
 	}
 
@@ -26,17 +26,17 @@ class AuthController extends CI_Controller
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$data = array(
-				'pengguna_username' => $username,
-				'pengguna_password' => md5($password)
+				'user_username' => $username,
+				'user_password' => md5($password)
 			);
-			$pengguna = $this->PenggunaModel->get_user_account($data);
-			if ($pengguna != null) {
+			$user = $this->UserModel->get_user_account($data);
+			if ($user != null) {
 				$session = array(
-					'session_id' => $pengguna['pengguna_id'],
-					'session_username' => $pengguna['pengguna_username'],
-					'session_nama' => $pengguna['pengguna_nama'],
-					'session_foto' => $pengguna['pengguna_foto'],
-					'session_hak_akses' => $pengguna['pengguna_hak_akses']
+					'session_id' => $user['user_id'],
+					'session_username' => $user['user_username'],
+					'session_nama' => $user['user_nama'],
+					'session_foto' => $user['user_foto'],
+					'session_hak_akses' => $user['user_hak_akses']
 				);
 				$this->session->set_flashdata('alert', 'login_sukses');
 				$this->session->set_userdata($session);
