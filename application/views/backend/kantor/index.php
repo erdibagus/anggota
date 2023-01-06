@@ -38,34 +38,36 @@
 				</button>
 			</div>
 			<div class="card-body">
-				<table class="table table-bordered zero-configuration" >
-					<thead>
-					<tr>
-						<th>No</th>
-						<th>Kantor</th>
-						<td style="text-align: center"><i class="ft-settings spinner"></i></td>
-					</tr>
-					</thead>
-					<tbody>
+				<div class="table-responsive">
+					<table class="table table-bordered zero-configuration" >
+						<thead>
+						<tr>
+							<th>No</th>
+							<th>Kantor</th>
+							<td style="text-align: center"><i class="ft-settings spinner"></i></td>
+						</tr>
+						</thead>
+						<tbody>
 
-					<?php
-					$no = 1;
-					foreach ($kantor as $key=>$value):
-					?>
-					<tr>
-						<td><?=$no?></td>
-						<td><?=$value['kantor_nama']?></td>
-						<td>
-							<button class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 kantor-edit" data-toggle="modal" data-target="#ubah" value="<?=$value['kantor_id']?>"><i class="ft-edit"></i></button>
-							<button class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 kantor-hapus" onclick="hapus('<?=$value['kantor_id']?>')" data-toggle="modal" data-target="#hapus" value="<?=$value['kantor_id']?>"><i class="ft-trash"></i></button>
-						</td>
-					</tr>
-					<?php
-					$no++;
-					endforeach;
-					?>
-					</tbody>
-				</table>
+						<?php
+						$no = 1;
+						foreach ($kantor as $key=>$value):
+						?>
+						<tr>
+							<td><?=$no?></td>
+							<td><?=$value['kantor_nama']?></td>
+							<td>
+								<button class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 kantor-edit" onclick="edit('<?=$value['kantor_id']?>')" data-toggle="modal" data-target="#ubah" value="<?=$value['kantor_id']?>"><i class="ft-edit"></i></button>
+								<button class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 kantor-hapus" onclick="hapus('<?=$value['kantor_id']?>')" data-toggle="modal" data-target="#hapus" value="<?=$value['kantor_id']?>"><i class="ft-trash"></i></button>
+							</td>
+						</tr>
+						<?php
+						$no++;
+						endforeach;
+						?>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -143,8 +145,8 @@
 
 <script>
 	function edit(id) {
-		$('.kantor-edit').click(function () {
-			var id = $(this).val();
+		
+			
 			var getUrl = 'kantor/updateForm/' + id;
 			var html = '';
 			$.ajax({
@@ -169,7 +171,7 @@
 					console.log(response.status + 'error');
 				}
 			});
-		});
+		
 	}
 
 	function hapus(id) {

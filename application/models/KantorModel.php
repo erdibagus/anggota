@@ -24,7 +24,7 @@ class KantorModel extends CI_Model{
 
 	public function lihat_satu_kantor($id){
 		$this->db->select('*');
-		$this->db->from('sigaka_kantor');
+		$this->db->from('kantor');
 		$this->db->where('kantor_id',$id);
 		$query = $this->db->get();
 		return $query->row_array();
@@ -32,7 +32,7 @@ class KantorModel extends CI_Model{
 
 	public function update_kantor($id,$data){
 		$this->db->where('kantor_id',$id);
-		$this->db->update('sigaka_kantor',$data);
+		$this->db->update('kantor',$data);
 		return $this->db->affected_rows();
 	}
 

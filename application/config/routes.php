@@ -75,6 +75,8 @@ $route['jabatan/hapus/(:any)'] = 'JabatanController/hapus/$1';
 
 $route['kantor'] = 'KantorController';
 $route['kantor/tambah'] = 'KantorController/tambah';
+$route['kantor/updateForm/(:any)'] = 'KantorController/updateForm/$1';
+$route['kantor/update'] = 'KantorController/update';
 $route['kantor/hapus/(:any)'] = 'KantorController/hapus/$1';
 $route['absen/lembur/(:any)'] = 'AbsenController/lembur/$1';
 

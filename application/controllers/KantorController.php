@@ -53,12 +53,10 @@ class KantorController extends CI_Controller{
 		if (isset($_POST['update'])){
 			$id = $this->input->post('id');
 			$kantor = $this->input->post('kantor');
-			$gaji = $this->input->post('gaji');
 			$data = array(
 				'kantor_nama' => $kantor,
-				'kantor_gaji' => $gaji
 			);
-			$update = $this->kantorModel->update_kantor($id,$data);
+			$update = $this->KantorModel->update_kantor($id,$data);
 			if ($update > 0){
 				$this->session->set_flashdata('alert', 'update_kantor');
 				redirect('kantor');
