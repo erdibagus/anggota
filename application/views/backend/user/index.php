@@ -120,7 +120,6 @@
 						<label for="password">Password</label>
 						<input type="text" class="form-control" name="password" id="password" placeholder="Password" autocomplete="off" required>
 					</fieldset>
-
 				</div>
 				<div class="modal-footer">
 					<input type="reset" class="btn btn-secondary btn-bg-gradient-x-red-pink" data-dismiss="modal" value="Tutup">

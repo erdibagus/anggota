@@ -38,11 +38,15 @@ class UserController extends CI_Controller{
 			$nama = $this->input->post('nama');
 			$kantor = $this->input->post('kantor');
 			$level = $this->input->post('level');
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
 			$data = array(
 				'user_id' => $id,
 				'user_nama' => $nama,
 				'user_kantor' => $kantor,
-				'user_hak_akses' => $level
+				'user_hak_akses' => $level,
+				'user_username' => $username,
+				'user_password' => md5($password)
 			);
 			$save = $this->UserModel->tambah_user($data);
 			if ($save>0){
