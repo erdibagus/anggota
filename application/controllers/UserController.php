@@ -6,7 +6,8 @@ class UserController extends CI_Controller{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('UserModel');
+		$model = array('UserModel', 'KantorModel');
+		$this->load->model($model);
 		$this->load->helper('nominal');
 		if (!$this->session->has_userdata('session_id')) {
 			$this->session->set_flashdata('alert', 'belum_login');
@@ -17,6 +18,7 @@ class UserController extends CI_Controller{
 	public function index(){
 		$data = array(
 			'user' => $this->UserModel->lihat_user(),
+			'kantor' => $this->KantorModel->lihat_kantor(),
 			'title' => 'User'
 		);
 		$this->load->view('templates/header',$data);
@@ -24,16 +26,23 @@ class UserController extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+	public function lihat($id){
+		$data = $this->UserModel->lihat_satu_user($id);
+		echo json_encode($data);
+	}
+
 	public function tambah(){
 		if (isset($_POST['simpan'])){
 			$generate = substr(time(), 5);
-			$id = 'JAB-' . $generate;
-			$user = $this->input->post('user');
-			$gaji = $this->input->post('gaji');
+			$id = 'USR-' . $generate;
+			$nama = $this->input->post('nama');
+			$kantor = $this->input->post('kantor');
+			$level = $this->input->post('level');
 			$data = array(
 				'user_id' => $id,
-				'user_nama' => $user,
-				'user_gaji' => $gaji
+				'user_nama' => $nama,
+				'user_kantor' => $kantor,
+				'user_hak_akses' => $level
 			);
 			$save = $this->UserModel->tambah_user($data);
 			if ($save>0){
@@ -54,11 +63,14 @@ class UserController extends CI_Controller{
 	public function update(){
 		if (isset($_POST['update'])){
 			$id = $this->input->post('id');
-			$user = $this->input->post('user');
-			$gaji = $this->input->post('gaji');
+			$nama = $this->input->post('nama');
+			$kantor = $this->input->post('kantor');
+			$level = $this->input->post('level');
 			$data = array(
-				'user_nama' => $user,
-				'user_gaji' => $gaji
+				'user_id' => $id,
+				'user_nama' => $nama,
+				'user_kantor' => $kantor,
+				'user_hak_akses' => $level
 			);
 			$update = $this->UserModel->update_user($id,$data);
 			if ($update > 0){

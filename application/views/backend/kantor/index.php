@@ -144,34 +144,31 @@
 </div>
 
 <script>
-	function edit(id) {
-		
-			
-			var getUrl = 'kantor/updateForm/' + id;
-			var html = '';
-			$.ajax({
-				url : getUrl,
-				type : 'ajax',
-				dataType : 'json',
-				success: function (response) {
-					console.log(response);
-					if (response != null){
-						html += '' +
-							'<input type="hidden" value="'+id+'" name="id">' +
-							'<fieldset class="form-group floating-label-form-group">' +
-							'<label for="kantor">Kantor</label>' +
-							'<input type="text" class="form-control" name="kantor" id="kantor" value="'+response.kantor_nama+'" placeholder="Kantor" autocomplete="off" required>' +
-							'</fieldset>';
+	function edit(id) {		
+		var getUrl = 'kantor/updateForm/' + id;
+		var html = '';
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				console.log(response);
+				if (response != null){
+					html += '' +
+						'<input type="hidden" value="'+id+'" name="id">' +
+						'<fieldset class="form-group floating-label-form-group">' +
+						'<label for="kantor">Kantor</label>' +
+						'<input type="text" class="form-control" name="kantor" id="kantor" value="'+response.kantor_nama+'" placeholder="Kantor" autocomplete="off" required>' +
+						'</fieldset>';
 
-						console.log(html);
-						$('#updateformkantor').html(html);
-					}
-				},
-				error: function (response) {
-					console.log(response.status + 'error');
+					console.log(html);
+					$('#updateformkantor').html(html);
 				}
-			});
-		
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
 	}
 
 	function hapus(id) {

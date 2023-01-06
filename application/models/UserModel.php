@@ -17,6 +17,7 @@ class UserModel extends CI_Model{
 	public function lihat_user(){
 		$this->db->select('*');
 		$this->db->from('user');
+		$this->db->join('kantor', 'kantor.kantor_id = user.user_kantor');
 		$this->db->order_by('user_id','DESC');
 		$query = $this->db->get();
 		return $query->result_array();
@@ -37,13 +38,13 @@ class UserModel extends CI_Model{
 
 	public function update_user($id,$data){
 		$this->db->where('user_id',$id);
-		$this->db->update('sigaka_user',$data);
+		$this->db->update('user',$data);
 		return $this->db->affected_rows();
 	}
 
 	public function hapus_user($id){
 		$this->db->where('user_id', $id);
-		$this->db->delete('sigaka_user');
+		$this->db->delete('user');
 		return $this->db->affected_rows();
 	}
 
