@@ -33,11 +33,9 @@
 			?>
 			<div class="card-header">
 				<h1 style="text-align: center">Data kantor</h1>
-				<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
 				<button type="button" class="btn btn-primary btn-bg-gradient-x-purple-blue box-shadow-2" data-toggle="modal" data-target="#tambah">
 					<i class="ft-plus-circle"></i> Tambah kantor
 				</button>
-				<?php endif?>
 			</div>
 			<div class="card-body">
 				<table class="table table-bordered zero-configuration" >
@@ -58,10 +56,8 @@
 						<td><?=$no?></td>
 						<td><?=$value['kantor_nama']?></td>
 						<td>
-							<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
 							<button class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2 kantor-edit" data-toggle="modal" data-target="#ubah" value="<?=$value['kantor_id']?>"><i class="ft-edit"></i></button>
 							<button class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2 kantor-hapus" onclick="hapus('<?=$value['kantor_id']?>')" data-toggle="modal" data-target="#hapus" value="<?=$value['kantor_id']?>"><i class="ft-trash"></i></button>
-							<?php endif;?>
 						</td>
 					</tr>
 					<?php

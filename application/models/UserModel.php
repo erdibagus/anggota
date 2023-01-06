@@ -23,13 +23,13 @@ class UserModel extends CI_Model{
 	}
 
 	public function tambah_user($data){
-		$this->db->insert('sigaka_user', $data);
+		$this->db->insert('user', $data);
 		return $this->db->affected_rows();
 	}
 
 	public function lihat_satu_user($id){
 		$this->db->select('*');
-		$this->db->from('sigaka_user');
+		$this->db->from('user');
 		$this->db->where('user_id',$id);
 		$query = $this->db->get();
 		return $query->row_array();

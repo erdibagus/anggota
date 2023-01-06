@@ -33,12 +33,10 @@
 			?>
 			<div class="card-header">
 				<h1 style="text-align: center">Data Anggota</h1>
-				<?php if ($this->session->userdata('session_hak_akses') == 'manajer'):?>
 				<button type="button" class="btn btn-primary btn-bg-gradient-x-purple-blue box-shadow-2"
 						data-toggle="modal" data-target="#bootstrap">
 					<i class="ft-plus-circle"></i> Tambah data Anggota
 				</button>
-				<?php endif; ?>
 			</div>
 			<hr>
 			<div class="card-body">
@@ -57,7 +55,9 @@
 							<th>Kecamatan</th>
 							<th>Kabupaten/Kota</th>
 							<th>Tanggal Masuk</th>
+							<?php if ($this->session->userdata('session_hak_akses') == 'admin'):?>
 							<td style="text-align: center"><i class="ft-settings spinner"></i></td>
+							<?php endif?>
 						</tr>
 						</thead>
 						<tbody>
