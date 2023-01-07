@@ -1,0 +1,113 @@
+[33mcommit 1cd867002beea92c0ae8dd0470c60395960b24d9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Sat Jan 7 11:59:14 2023 +0700
+
+    tabel anggota baru dan sistem approval
+
+[33mcommit 4fb09ae6cebcd1f4e0f418c7b369b547d267644a[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Sat Jan 7 09:54:18 2023 +0700
+
+    menambahkan reset password user
+
+[33mcommit c9d3f2eb70ed692bdbe8aa92e5d301683aebe65d[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Jan 6 17:49:30 2023 +0700
+
+    progres username dan password
+
+[33mcommit 23be2e66f8869aad31d26275a87c7befe823ade4[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Jan 6 15:41:14 2023 +0700
+
+    menu user dan kantor selesai
+
+[33mcommit 48d282288f9a1c66c40cb9d22c08c9213db28262[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Jan 6 11:36:47 2023 +0700
+
+    edit kantor
+
+[33mcommit df45d76cb5132d959784c29f763e5a96fc5d0751[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Jan 6 11:24:38 2023 +0700
+
+    tambah kantor
+
+[33mcommit 14c04f4770e28f7e6081e8633a6f41d5da53c67a[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Thu Jan 5 16:30:21 2023 +0700
+
+    lupa add file :p
+
+[33mcommit a6fa5c4c2bb70e26bdbf228d7bf3bf37cf36e716[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Thu Jan 5 16:29:36 2023 +0700
+
+    menambah function user : read dan kantor : read, delete
+
+[33mcommit ed18e986185ad7c4c36072fbcd4ddd24474ef65f[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Dec 30 15:01:03 2022 +0700
+
+    hapus kolom no anggota pada tambah dan edit
+
+[33mcommit 252573d31f38f1c810133ff58e27afcdc31009d2[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Dec 30 10:51:52 2022 +0700
+
+    kode otomatis ketika input data
+
+[33mcommit f3df1b7a2ea8e936dd8fc532b465417e272b6576[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Dec 30 10:23:04 2022 +0700
+
+    commit setelah demo program
+
+[33mcommit 2390c066a8dc4fe53791229adba71256360da1e6[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Tue Dec 27 12:39:17 2022 +0700
+
+    bersih2 controller dashboard dan hapus nama hak akses di header
+
+[33mcommit fb883c1b4e69b4999379d4dfcafec0ab1a32e2bb[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Tue Dec 27 12:32:23 2022 +0700
+
+    perbaikan performa, mencari file .map yg hilang
+
+[33mcommit 96a15f71b8c9299c2804517f6af33ca31344dc5e[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Tue Dec 27 12:08:16 2022 +0700
+
+    tabel serverside, modal tampil, modal edit, hapus, fix.
+
+[33mcommit d0b01d5aafe795751145cfd2c529838b093c9e10[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Sat Dec 24 12:07:52 2022 +0700
+
+    tabel sudah serverside, modal tampil per anggota blm bisa
+
+[33mcommit cfe3780c4fff2fcffd9bd18cb977355785dbf3b0[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Fri Dec 23 10:10:14 2022 +0700
+
+    sudah siap, tinggal penyesuaian sedkit tampilan dan serverside
+
+[33mcommit 886a000dfca455bda092dc038d851ca5fdc42f69[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Thu Dec 22 14:26:46 2022 +0700
+
+    anggota.js function lihat anggota
+
+[33mcommit 6b0e0b27b8d2fc7fff855f1375419bd87b359667[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Thu Dec 22 11:53:25 2022 +0700
+
+    perbaikan warna dashboar dan otw perbaikan anggota.js
+
+[33mcommit c067f1f521e4085c4f53ad764d90ad703b313cff[m
+Author: Erdi Bagus <erdibgs@gmail.com>
+Date:   Wed Dec 21 15:06:58 2022 +0700
+
+    initial git

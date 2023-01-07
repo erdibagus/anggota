@@ -101,6 +101,6 @@ $route['laporan/lihat/(:any)/(:any)'] = 'LaporanController/lihat/$1/$2';
 $route['login'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
 
-$route['default_controller'] = 'AuthController/login';
+$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
