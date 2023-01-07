@@ -153,12 +153,16 @@
 					href="<?= base_url('anggota') ?>"><i class="ft-user-check"></i><span class="menu-title"
 																					   data-i18n="">Anggota</span></a>
 			</li>
+			<li class=" nav-item <?php if ($this->uri->segment(1) == 'anggota_masuk') echo 'active' ?>"><a
+					href="<?= base_url('anggota_masuk') ?>"><i class="ft-user-plus"></i><span class="menu-title"
+																					   data-i18n="">Anggota Masuk</span></a>
+			</li>
 			<li class=" nav-item <?php if ($this->uri->segment(1) == 'kantor') echo 'active' ?>"><a
-					href="<?= base_url('kantor') ?>"><i class="ft-user-check"></i><span class="menu-title"
+					href="<?= base_url('kantor') ?>"><i class="ft-award"></i><span class="menu-title"
 																					   data-i18n="">Kantor</span></a>
 			</li>
 			<li class=" nav-item <?php if ($this->uri->segment(1) == 'user') echo 'active' ?>"><a
-					href="<?= base_url('user') ?>"><i class="icon-wallet"></i><span class="menu-title"
+					href="<?= base_url('user') ?>"><i class="ft-users"></i><span class="menu-title"
 																					data-i18n="">User</span></a>
 			</li>
 			<!-- <li class=" nav-item <?php if ($this->uri->segment(1) == 'pinjam') echo 'active' ?>"><a

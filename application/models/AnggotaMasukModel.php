@@ -2,12 +2,12 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class AnggotaModel extends CI_Model{
+class AnggotaMasukModel extends CI_Model{
 
     var $table = 'anggota';
     var $column_order = array(null, 'anggota_id', null, null, null, null, null, null, null); //set column field database for datatable orderable
     var $column_search = array('anggota_id'); //set column field database for datatable searchable 
-    var $order = array('no_anggota' => 'asc'); // default order 
+    var $order = array('anggota_id' => 'asc'); // default order 
 
 	public function __construct()
 	{
@@ -18,7 +18,7 @@ class AnggotaModel extends CI_Model{
 	private function _get_datatables_query()
     {
       $this->db->from('anggota');
-      $this->db->where('status', 1);
+      $this->db->where('status', 0);
 
 
       $i = 0;
@@ -67,7 +67,7 @@ class AnggotaModel extends CI_Model{
     public function count_all()
     {
         $this->db->from($this->table);
-        $this->db->where('status', 1);
+        $this->db->where('status', 0);
         return $this->db->count_all_results();
     }
 
