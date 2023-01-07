@@ -72,6 +72,7 @@ $route['user/lihat/(:any)'] = 'UserController/lihat/$1';
 $route['user/tambah'] = 'UserController/tambah';
 $route['user/updateForm/(:any)'] = 'UserController/updateForm/$1';
 $route['user/update'] = 'UserController/update';
+$route['user/reset'] = 'UserController/reset';
 $route['user/hapus/(:any)'] = 'UserController/hapus/$1';
 
 $route['kantor'] = 'KantorController';

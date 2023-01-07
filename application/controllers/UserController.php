@@ -87,6 +87,25 @@ class UserController extends CI_Controller{
 		}
 	}
 
+	public function reset(){
+		if (isset($_POST['reset'])){
+			$id = $this->input->post('id');
+			$password = $this->input->post('password');
+			$data = array(
+				'user_id' => $id,
+				'user_password' => md5($password)
+			);
+			$update = $this->UserModel->update_user($id,$data);
+			if ($update > 0){
+				$this->session->set_flashdata('alert', 'update_user');
+				redirect('user');
+			}
+			else{
+				redirect('user');
+			}
+		}
+	}
+
 	public function hapus($id){
 		$hapus = $this->UserModel->hapus_user($id);
 		if ($hapus > 0){

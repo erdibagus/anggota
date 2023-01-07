@@ -61,6 +61,7 @@
 						<td><?=$value['user_hak_akses']?></td>
 						<td>
 							<button class="btn btn-success btn-sm  btn-bg-gradient-x-blue-green box-shadow-2" onclick="edit('<?=$value['user_id']?>')" data-toggle="modal" data-target="#ubah" value="<?=$value['user_id']?>"><i class="ft-edit"></i></button>
+							<button class="btn btn-warning btn-sm  btn-bg-gradient-x-orange-yellow box-shadow-2" onclick="reset('<?=$value['user_id']?>')" data-toggle="modal" data-target="#reset" value="<?=$value['user_id']?>"><i class="ft-unlock"></i></button>
 							<button class="btn btn-danger btn-sm  btn-bg-gradient-x-red-pink box-shadow-2" onclick="hapus('<?=$value['user_id']?>')" data-toggle="modal" data-target="#hapus" value="<?=$value['user_id']?>"><i class="ft-trash"></i></button>
 						</td>
 					</tr>
@@ -143,9 +144,10 @@
 			</div>
 			<?= form_open('user/update') ?>
 			<div class="modal-body">
+				<input type="text" name="id" id="edit_id" hidden>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nama">Nama</label>
-					<input type="text" class="form-control" name="nama" id="edit_nama" placeholder="Nama anggota"
+					<input type="text" class="form-control" name="nama" id="edit_nama" placeholder="Nama"
 						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
@@ -180,6 +182,41 @@
 	</div>
 </div>
 
+<!-- Modal reset password -->
+<div class="modal fade text-left" id="reset" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+	 aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title" id="myModalLabel35"> Reset Password User</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<?= form_open('user/reset') ?>
+			<div class="modal-body">
+				<input type="text" name="id" id="reset_id" hidden>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="nama">Nama</label>
+					<input type="text" class="form-control" name="nama" id="reset_nama" placeholder="Nama"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="password">Password</label>
+					<input type="text" class="form-control" name="password" id="password" placeholder="Password"
+						   autocomplete="off" required>
+				</fieldset>
+			<div class="modal-footer">
+				<input type="reset" class="btn btn-secondary btn-bg-gradient-x-red-pink" data-dismiss="modal"
+					   value="Tutup">
+				<input type="submit" class="btn btn-primary btn-bg-gradient-x-blue-cyan" name="reset" value="Reset">
+			</div>
+			<?= form_close() ?>
+		</div>
+	</div>
+</div>
+</div>
+
 <!-- Modal hapus -->
 <div class="modal fade text-left" id="hapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -209,9 +246,29 @@
 			dataType : 'json',
 			success: function (response) {
 				if (response != null){
+					$('#edit_id').val(response.user_id);
 					$('#edit_nama').val(response.user_nama);
 					$('#edit_kantor').val(response.user_kantor);
 					$('#edit_level').val(response.user_hak_akses);
+					console.log(response);
+				}
+			},
+			error: function (response) {
+				console.log(response.status + 'error');
+			}
+		});
+	}
+
+	function reset(id) {
+	var getUrl = 'user/lihat/' + id;
+		$.ajax({
+			url : getUrl,
+			type : 'ajax',
+			dataType : 'json',
+			success: function (response) {
+				if (response != null){
+					$('#reset_id').val(response.user_id);
+					$('#reset_nama').val(response.user_nama);
 					console.log(response);
 				}
 			},
