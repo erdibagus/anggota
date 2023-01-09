@@ -16,6 +16,11 @@ class AnggotaMAsukController extends CI_Controller{
 		}
     }
 
+	private function _validasi()
+    {
+        $this->form_validation->set_rules('anggota_id', 'NIK', 'required|trim|is_unique[anggota.anggota_id]');
+    }
+
 	public function index(){
     	$data = array(
     		'anggota' => $this->AnggotaMasukModel->lihat_anggota(),
@@ -71,6 +76,50 @@ class AnggotaMAsukController extends CI_Controller{
 		$data = $this->AnggotaMasukModel->lihat_satu_anggota($id);
 		echo json_encode($data);
 	}
+
+	public function tambah()
+    {
+        $this->_validasi();
+
+        if ($this->form_validation->run() == false) {
+            $data['title'] = "Registrasi";
+
+			$this->load->view('frontend/index',$data);
+        } else {
+            if (isset($_POST['tambah'])){
+				$id = $this->input->post('anggota_id');
+				$nama = $this->input->post('nama');
+				$jenis_kelamin = $this->input->post('jenis_kelamin');
+				$pekerjaan = $this->input->post('pekerjaan');
+				$alamat = $this->input->post('alamat');
+				$desa = $this->input->post('desa');
+				$kecamatan = $this->input->post('kecamatan');
+				$kabupaten = $this->input->post('kabupaten');
+				$tanggal_gabung = $this->input->post('tanggal_gabung');
+				$status = 0;
+				$data = array(
+					'anggota_id' => $id,
+					'nama' => $nama,
+					'jenis_kelamin' => $jenis_kelamin,
+					'pekerjaan' => $pekerjaan,
+					'alamat' => $alamat,
+					'desa' => $desa,
+					'kecamatan' => $kecamatan,
+					'kabupaten' => $kabupaten,
+					'tanggal_gabung' => $tanggal_gabung,
+					'status' => $status
+				);
+				$save = $this->AnggotaMasukModel->tambah_anggota($data);
+				if ($save>0){
+					$this->session->set_flashdata('alert', 'tambah_anggota');
+					redirect('index');
+				}
+				else{
+					redirect('index');
+				}
+			}
+        }
+    }
 
 	public function update(){
 		if (isset($_POST['update'])){

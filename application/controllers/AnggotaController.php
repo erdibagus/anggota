@@ -10,10 +10,16 @@ class AnggotaController extends CI_Controller{
 		$helper = array('tgl_indo_helper');
 		$this->load->model($model);
 		$this->load->helper($helper);
+		$this->load->library('form_validation');
 		if (!$this->session->has_userdata('session_id')) {
 			$this->session->set_flashdata('alert', 'belum_login');
 			redirect(base_url('login'));
 		}
+    }
+
+	private function _validasi()
+    {
+        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[anggota.anggota_id]');
     }
 
     public function index(){
@@ -73,36 +79,51 @@ class AnggotaController extends CI_Controller{
     }
 
 	public function tambah(){
-    	if (isset($_POST['simpan'])){
-			$id = $this->input->post('nik');
-			$nama = $this->input->post('nama');
-			$no_anggota = $this->AnggotaModel->buat_kode();
-			$jenis_kelamin = $this->input->post('jenis_kelamin');
-			$pekerjaan = $this->input->post('pekerjaan');
-			$alamat = $this->input->post('alamat');
-			$desa = $this->input->post('desa');
-			$kecamatan = $this->input->post('kecamatan');
-			$kabupaten = $this->input->post('kabupaten');
-			$tanggal_gabung = $this->input->post('tanggal_gabung');
-			$data = array(
-				'anggota_id' => $id,
-				'nama' => $nama,
-				'no_anggota' => $no_anggota,
-				'jenis_kelamin' => $jenis_kelamin,
-				'pekerjaan' => $pekerjaan,
-				'alamat' => $alamat,
-				'desa' => $desa,
-				'kecamatan' => $kecamatan,
-				'kabupaten' => $kabupaten,
-				'tanggal_gabung' => $tanggal_gabung
+		$this->_validasi();
+
+        if ($this->form_validation->run() == false) {
+            $data = array(
+				'anggota' => $this->AnggotaModel->lihat_anggota(),
+				'title' => 'Anggota'
 			);
-			$save = $this->AnggotaModel->tambah_anggota($data);
-			if ($save>0){
-				$this->session->set_flashdata('alert', 'tambah_anggota');
-				redirect('anggota');
-			}
-			else{
-				redirect('anggota');
+			
+			$errors = validation_errors();
+           	$this->session->set_flashdata('form_error', $errors);
+			$this->load->view('templates/header',$data);
+			$this->load->view('backend/anggota/index',$data);
+			$this->load->view('templates/footer');
+        } else {
+			if (isset($_POST['simpan'])){
+				$id = $this->input->post('nik');
+				$nama = $this->input->post('nama');
+				$no_anggota = $this->AnggotaModel->buat_kode();
+				$jenis_kelamin = $this->input->post('jenis_kelamin');
+				$pekerjaan = $this->input->post('pekerjaan');
+				$alamat = $this->input->post('alamat');
+				$desa = $this->input->post('desa');
+				$kecamatan = $this->input->post('kecamatan');
+				$kabupaten = $this->input->post('kabupaten');
+				$tanggal_gabung = $this->input->post('tanggal_gabung');
+				$data = array(
+					'anggota_id' => $id,
+					'nama' => $nama,
+					'no_anggota' => $no_anggota,
+					'jenis_kelamin' => $jenis_kelamin,
+					'pekerjaan' => $pekerjaan,
+					'alamat' => $alamat,
+					'desa' => $desa,
+					'kecamatan' => $kecamatan,
+					'kabupaten' => $kabupaten,
+					'tanggal_gabung' => $tanggal_gabung
+				);
+				$save = $this->AnggotaModel->tambah_anggota($data);
+				if ($save>0){
+					$this->session->set_flashdata('alert', 'tambah_anggota');
+					redirect('anggota');
+				}
+				else{
+					redirect('anggota');
+				}
 			}
 		}
 	}

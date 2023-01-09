@@ -28,9 +28,19 @@
 					</button>
 					Data berhasil dihapus
 				</div>
+				<?php
+			elseif ($this->session->flashdata('form_error')):
+				?>
+				<div class="alert alert-warning alert-dismissible animated fadeInDown" id="feedback" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					NIK sudah terdaftar
+				</div>
 			<?php
 			endif;
 			?>
+			
 			<div class="card-header">
 				<h1 style="text-align: center">Data Anggota</h1>
 				<button type="button" class="btn btn-primary btn-bg-gradient-x-purple-blue box-shadow-2"
@@ -87,6 +97,7 @@
 					<label for="nik">NIK</label>
 					<input type="number" class="form-control" name="nik" id="nik" placeholder="NIK"
 						   autocomplete="off" required>
+					<?= form_error('nik', '<span class="text-danger small">', '</span>'); ?>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nama">Nama</label>

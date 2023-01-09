@@ -22,7 +22,7 @@
            		   		
            		   </div>
            		   <div class="div">
-           		   		<h5>Username</h5>
+           		   		<h5>Nama</h5>
            		   		<input type="text" class="input">
            		   </div>
            		</div>
@@ -31,8 +31,8 @@
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
+           		    	<h5>Alamat</h5>
+           		    	<input type="text" class="input">
             	   </div>
             	</div>
             	<a href="#">Forgot Password?</a>
