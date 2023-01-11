@@ -64,6 +64,7 @@
 							<th>Desa</th>
 							<th>Kecamatan</th>
 							<th>Kabupaten/Kota</th>
+							<th>Provinsi</th>
 							<th>Tanggal Masuk</th>
 							<?php if ($this->session->userdata('session_hak_akses') == 'admin'):?>
 							<td style="text-align: center"><i class="ft-settings spinner"></i></td>
@@ -97,7 +98,6 @@
 					<label for="nik">NIK</label>
 					<input type="number" class="form-control" name="nik" id="nik" placeholder="NIK"
 						   autocomplete="off" required>
-					<?= form_error('nik', '<span class="text-danger small">', '</span>'); ?>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nama">Nama</label>
@@ -123,20 +123,36 @@
 							  autocomplete="off" required></textarea>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="desa">Desa</label>
-					<input type="text" class="form-control" name="desa" id="desa" placeholder="Desa"
-						   autocomplete="off" required>
+				<label for="provinsi">Provinsi</label>
+                            <select class="form-control" id="provinsi" name="provinsi">
+                                <option value="">--Pilih--</option>
+                                <?php foreach ($provinsi as $prov) : ?>
+                                    <option value="<?= $prov['id']; ?>"><?= $prov['nama_provinsi']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
 				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="kecamatan">Kecamatan</label>
-					<input type="text" class="form-control" name="kecamatan" id="kecamatan" placeholder="Kecamatan"
-						   autocomplete="off" required>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="kabupaten">Kabupaten/Kota</label>
-					<input type="text" class="form-control" name="kabupaten" id="kabupaten" placeholder="Kabupaten"
-						   autocomplete="off" required>
-				</fieldset>
+				
+					<div class="form-group">
+						<label for="kabupaten">Kabupaten/Kota</label>
+						<select class="form-control" id="kabupaten" name="kabupaten">
+							<option value="">--Pilih--</option>
+						</select>
+					</div>
+				
+				
+					<div class="form-group">
+						<label for="kecamatan">Kecamatan</label>
+						<select class="form-control" id="kecamatan" name="kecamatan">
+							<option value="">--Pilih--</option>
+						</select>
+					</div>
+				
+					<div class="form-group">
+						<label for="desa">Desa</label>
+						<select class="form-control" id="desa" name="desa">
+							<option value="">--Pilih--</option>
+						</select>
+					</div>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
@@ -437,6 +453,54 @@ function edit(id) {
 			}
 		});
 	}
+</script>
 
+<script>
+    $(document).ready(function() {
+        $('#provinsi').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getKabupaten') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#kabupaten').html(response);
+                }
+            });
+        });
+
+        $('#kabupaten').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getKecamatan') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#kecamatan').html(response);
+                }
+            });
+        });
+
+        $('#kecamatan').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getDesa') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#desa').html(response);
+                }
+            });
+        });
+    });
 </script>
 

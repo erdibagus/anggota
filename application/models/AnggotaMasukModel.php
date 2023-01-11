@@ -128,5 +128,5 @@ class AnggotaMasukModel extends CI_Model{
         $kodemax = str_pad($kode, STR_PAD_LEFT); // angka 4 menunjukkan jumlah digit angka 0
         $kodejadi = $kodemax;    // hasilnya ODJ-0001 dst.
         return $kodejadi;
-  }
+    }
 }

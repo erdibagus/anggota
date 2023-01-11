@@ -92,7 +92,7 @@ $route['gaji/bayar/(:any)'] = 'GajiController/bayar/$1';
 $route['gaji/pinjam/(:any)'] = 'GajiController/pinjam/$1';
 $route['gaji/detail/(:any)'] = 'GajiController/detail/$1';
 
-$route['pinjam'] = 'PinjamController';
+$route['kabupaten'] = 'WilayahController/getKabupaten';
 $route['pinjam/tambah'] = 'PinjamController/tambah';
 
 $route['laporan'] = 'LaporanController';
@@ -101,6 +101,6 @@ $route['laporan/lihat/(:any)/(:any)'] = 'LaporanController/lihat/$1/$2';
 $route['login'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
 
-$route['default_controller'] = 'AnggotaController';
+$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -6,7 +6,7 @@ class AnggotaController extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
-		$model = array('AnggotaModel');
+		$model = array('AnggotaModel', 'WilayahModel');
 		$helper = array('tgl_indo_helper');
 		$this->load->model($model);
 		$this->load->helper($helper);
@@ -24,7 +24,7 @@ class AnggotaController extends CI_Controller{
 
     public function index(){
     	$data = array(
-    		'anggota' => $this->AnggotaModel->lihat_anggota(),
+			'provinsi' => $this->WilayahModel->getDataProv(),
 			'title' => 'Anggota'
 		);
 		$this->load->view('templates/header',$data);
@@ -48,8 +48,9 @@ class AnggotaController extends CI_Controller{
             $row[] = $p->pekerjaan;
             $row[] = $p->alamat;
             $row[] = $p->desa;
-            $row[] = $p->kecamatan;
-            $row[] = $p->kabupaten;
+            $row[] = $p->nama_kecamatan;
+            $row[] = $p->nama_kabupaten;
+            $row[] = $p->nama_provinsi;
             $row[] = $p->tanggal_gabung;
             $row[] = '
 			<button
@@ -83,7 +84,7 @@ class AnggotaController extends CI_Controller{
 
         if ($this->form_validation->run() == false) {
             $data = array(
-				'anggota' => $this->AnggotaModel->lihat_anggota(),
+				'provinsi' => $this->WilayahModel->getDataProv(),
 				'title' => 'Anggota'
 			);
 			
@@ -103,7 +104,9 @@ class AnggotaController extends CI_Controller{
 				$desa = $this->input->post('desa');
 				$kecamatan = $this->input->post('kecamatan');
 				$kabupaten = $this->input->post('kabupaten');
+				$provinsi = $this->input->post('provinsi');
 				$tanggal_gabung = $this->input->post('tanggal_gabung');
+				$status = 1;
 				$data = array(
 					'anggota_id' => $id,
 					'nama' => $nama,
@@ -114,7 +117,9 @@ class AnggotaController extends CI_Controller{
 					'desa' => $desa,
 					'kecamatan' => $kecamatan,
 					'kabupaten' => $kabupaten,
-					'tanggal_gabung' => $tanggal_gabung
+					'provinsi' => $provinsi,
+					'tanggal_gabung' => $tanggal_gabung,
+					'status' => $status
 				);
 				$save = $this->AnggotaModel->tambah_anggota($data);
 				if ($save>0){

@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AnggotaModel extends CI_Model{
 
     var $table = 'anggota';
-    var $column_order = array(null, 'anggota_id', null, null, null, null, null, null, null); //set column field database for datatable orderable
+    var $column_order = array(null, 'anggota_id', null, null, null, null, null, null, null, null, null, null); //set column field database for datatable orderable
     var $column_search = array('anggota_id'); //set column field database for datatable searchable 
     var $order = array('no_anggota' => 'asc'); // default order 
 
@@ -18,7 +18,11 @@ class AnggotaModel extends CI_Model{
 	private function _get_datatables_query()
     {
       $this->db->from('anggota');
-      $this->db->where('status', 1);
+      $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id = anggota.provinsi');
+      $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id = anggota.kabupaten');
+      $this->db->join('wilayah_kecamatan', 'wilayah_kecamatan.id = anggota.kecamatan');
+      $this->db->join('wilayah_desa', 'wilayah_desa.id = anggota.desa');
+      $this->db->where('anggota.status', 1);
 
 
       $i = 0;
@@ -77,14 +81,6 @@ class AnggotaModel extends CI_Model{
         $query = $this->db->get();
         return $query->num_rows();
     }
-
-	public function lihat_anggota(){
-		$this->db->select('*');
-		$this->db->from('anggota');
-		$this->db->order_by('no_anggota','DESC');
-		$query = $this->db->get();
-		return $query->result_array();
-	}
 
 	public function tambah_anggota($data){
 		$this->db->insert('anggota', $data);
