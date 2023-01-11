@@ -18,6 +18,10 @@ class AnggotaMasukModel extends CI_Model{
 	private function _get_datatables_query()
     {
       $this->db->from('anggota');
+      $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id = anggota.provinsi');
+      $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id = anggota.kabupaten');
+      $this->db->join('wilayah_kecamatan', 'wilayah_kecamatan.id = anggota.kecamatan');
+      $this->db->join('wilayah_desa', 'wilayah_desa.id = anggota.desa');
       $this->db->where('status', 0);
 
 

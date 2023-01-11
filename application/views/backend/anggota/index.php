@@ -235,6 +235,11 @@
 						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
+					<label for="provinsi">Provinsi</label></label>
+					<input type="text" class="form-control" name="kabupaten" id="lihat_provinsi" placeholder="Kabupaten"
+						   autocomplete="off" readonly>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
 					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
 						<input type="date" class="form-control" id="lihat_tanggal_gabung" name="tanggal_gabung"
@@ -303,20 +308,25 @@
 							  autocomplete="off" required></textarea>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
-					<label for="desa">Desa</label>
-					<input type="text" class="form-control" name="desa" id="edit_desa" placeholder="Desa"
-						   autocomplete="off" required>
+				<label for="provinsi">Provinsi</label>
+					<input type="text" class="form-control" id="edit_provinsi" readonly>
 				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
-					<label for="kecamatan">Kecamatan</label>
-					<input type="text" class="form-control" name="kecamatan" id="edit_kecamatan" placeholder="Kecamatan"
-						   autocomplete="off" required>
-				</fieldset>
-				<fieldset class="form-group floating-label-form-group">
+				
+					<div class="form-group">
 					<label for="kabupaten">Kabupaten/Kota</label>
-					<input type="text" class="form-control" name="kabupaten" id="edit_kabupaten" placeholder="Kabupaten"
-						   autocomplete="off" required>
-				</fieldset>
+						<input type="text" class="form-control" id="edit_kabupaten" readonly>
+					</div>
+				
+				
+					<div class="form-group">
+						<label for="kecamatan">Kecamatan</label>
+						<input type="text" class="form-control" id="edit_kecamatan" readonly>
+					</div>
+				
+					<div class="form-group">
+						<label for="desa">Desa</label>
+						<input type="text" class="form-control" id="edit_desa" readonly>
+					</div>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
@@ -414,9 +424,10 @@ function lihat(id) {
 					$('#lihat_jenis_kelamin').val(response.jenis_kelamin);
 					$('#lihat_pekerjaan').val(response.pekerjaan);
 					$('#lihat_alamat').val(response.alamat);
-					$('#lihat_desa').val(response.desa);
-					$('#lihat_kecamatan').val(response.kecamatan);
-					$('#lihat_kabupaten').val(response.kabupaten);
+					$('#lihat_desa').val(response.nama_desa);
+					$('#lihat_kecamatan').val(response.nama_kecamatan);
+					$('#lihat_kabupaten').val(response.nama_kabupaten);
+					$('#lihat_provinsi').val(response.nama_provinsi);
 					$('#lihat_tanggal_gabung').val(response.tanggal_gabung);
 					console.log(response);
 				}
@@ -441,9 +452,10 @@ function edit(id) {
 					$('#edit_jenis_kelamin').val(response.jenis_kelamin);
 					$('#edit_pekerjaan').val(response.pekerjaan);
 					$('#edit_alamat').val(response.alamat);
-					$('#edit_desa').val(response.desa);
-					$('#edit_kecamatan').val(response.kecamatan);
-					$('#edit_kabupaten').val(response.kabupaten);
+					$('#edit_desa').val(response.nama_desa);
+					$('#edit_kecamatan').val(response.nama_kecamatan);
+					$('#edit_kabupaten').val(response.nama_kabupaten);
+					$('#edit_provinsi').val(response.nama_provinsi);
 					$('#edit_tanggal_gabung').val(response.tanggal_gabung);
 					console.log(response);
 				}
@@ -504,3 +516,51 @@ function edit(id) {
     });
 </script>
 
+<script>
+    $(document).ready(function() {
+        $('#edit_provinsi').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getKabupaten') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#ubah_kabupaten').html(response);
+                }
+            });
+        });
+
+        $('#ubah_kabupaten').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getKecamatan') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#edit_kecamatan').html(response);
+                }
+            });
+        });
+
+        $('#edit_kecamatan').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getDesa') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#edit_desa').html(response);
+                }
+            });
+        });
+    });
+</script>

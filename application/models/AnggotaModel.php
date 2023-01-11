@@ -90,6 +90,10 @@ class AnggotaModel extends CI_Model{
 	public function lihat_satu_anggota($id){
 		$this->db->select('*');
 		$this->db->from('anggota');
+        $this->db->join('wilayah_provinsi', 'wilayah_provinsi.id = anggota.provinsi');
+        $this->db->join('wilayah_kabupaten', 'wilayah_kabupaten.id = anggota.kabupaten');
+        $this->db->join('wilayah_kecamatan', 'wilayah_kecamatan.id = anggota.kecamatan');
+        $this->db->join('wilayah_desa', 'wilayah_desa.id = anggota.desa');
 		$this->db->where('anggota_id',$id);
 		$query = $this->db->get();
 		return $query->row_array();

@@ -40,6 +40,7 @@
 							<th>Desa</th>
 							<th>Kecamatan</th>
 							<th>Kabupaten/Kota</th>
+							<th>Provinsi</th>
 							<th>Tanggal Masuk</th>
 							<td style="text-align: center"><i class="ft-settings spinner"></i></td>
 						</tr>
@@ -94,19 +95,39 @@
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="desa">Desa</label>
-					<input type="text" class="form-control" name="desa" id="lihat_desa" placeholder="Desa"
+					<input type="text" class="form-control" id="lihat_desa" placeholder="Desa"
 						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="kecamatan">Kecamatan</label>
-					<input type="text" class="form-control" name="kecamatan" id="lihat_kecamatan" placeholder="Kecamatan"
+					<input type="text" class="form-control" id="lihat_kecamatan" placeholder="Kecamatan"
 						   autocomplete="off" readonly>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 					<label for="kabupaten">Kabupaten/Kota</label>
-					<input type="text" class="form-control" name="kabupaten" id="lihat_kabupaten" placeholder="Kabupaten"
+					<input type="text" class="form-control" id="lihat_kabupaten" placeholder="Kabupaten"
 						   autocomplete="off" readonly>
 				</fieldset>
+				
+					
+					<input type="text" class="form-control" id="lihat_provinsi" placeholder="Provinsi"
+						   autocomplete="off" hidden>
+				
+					
+					<input type="text" class="form-control" name="desa" id="id_desa" placeholder="Desa"
+						   autocomplete="off" hidden>
+				
+					<input type="text" class="form-control" name="kecamatan" id="id_kecamatan" placeholder="Kecamatan"
+						   autocomplete="off" hidden>
+				
+					
+					<input type="text" class="form-control" name="kabupaten" id="id_kabupaten" placeholder="Kabupaten"
+						   autocomplete="off" hidden>
+				
+					
+					<input type="text" class="form-control" name="provinsi" id="id_provinsi" placeholder="Provinsi"
+						   autocomplete="off" hidden>
+
 				<fieldset class="form-group floating-label-form-group">
 					<label for="tanggal_gabung">Tanggal Bergabung</label>
 					<div class='input-group'>
@@ -202,9 +223,14 @@ function lihat(id) {
 					$('#lihat_jenis_kelamin').val(response.jenis_kelamin);
 					$('#lihat_pekerjaan').val(response.pekerjaan);
 					$('#lihat_alamat').val(response.alamat);
-					$('#lihat_desa').val(response.desa);
-					$('#lihat_kecamatan').val(response.kecamatan);
-					$('#lihat_kabupaten').val(response.kabupaten);
+					$('#lihat_desa').val(response.nama_desa);
+					$('#lihat_kecamatan').val(response.nama_kecamatan);
+					$('#lihat_kabupaten').val(response.nama_kabupaten);
+					$('#lihat_provinsi').val(response.nama_provinsi);
+					$('#id_desa').val(response.desa);
+					$('#id_kecamatan').val(response.kecamatan);
+					$('#id_kabupaten').val(response.kabupaten);
+					$('#id_provinsi').val(response.provinsi);
 					$('#lihat_tanggal_gabung').val(response.tanggal_gabung);
 					console.log(response);
 				}

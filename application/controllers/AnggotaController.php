@@ -47,7 +47,7 @@ class AnggotaController extends CI_Controller{
             $row[] = $p->jenis_kelamin;
             $row[] = $p->pekerjaan;
             $row[] = $p->alamat;
-            $row[] = $p->desa;
+            $row[] = $p->nama_desa;
             $row[] = $p->nama_kecamatan;
             $row[] = $p->nama_kabupaten;
             $row[] = $p->nama_provinsi;
@@ -146,9 +146,6 @@ class AnggotaController extends CI_Controller{
 			$jenis_kelamin = $this->input->post('jenis_kelamin');
 			$pekerjaan = $this->input->post('pekerjaan');
 			$alamat = $this->input->post('alamat');
-			$desa = $this->input->post('desa');
-			$kecamatan = $this->input->post('kecamatan');
-			$kabupaten = $this->input->post('kabupaten');
 			$tanggal_gabung = $this->input->post('tanggal_gabung');
 			$data = array(
 				'anggota_id' => $id,
@@ -157,9 +154,6 @@ class AnggotaController extends CI_Controller{
 				'jenis_kelamin' => $jenis_kelamin,
 				'pekerjaan' => $pekerjaan,
 				'alamat' => $alamat,
-				'desa' => $desa,
-				'kecamatan' => $kecamatan,
-				'kabupaten' => $kabupaten,
 				'tanggal_gabung' => $tanggal_gabung
 			);
 			$save = $this->AnggotaModel->update_anggota($id,$data);

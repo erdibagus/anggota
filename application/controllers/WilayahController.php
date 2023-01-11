@@ -65,7 +65,7 @@ class WilayahController extends CI_Controller{
                     $output .= '<option value="' . $row->id . '"> ' . $row->nama_desa . '</option>';
                 }
             } else { //tambah
-                $output .= '<option value="' . $row->id . '"> ' . $row->id . '</option>';
+                $output .= '<option value="' . $row->id . '"> ' . $row->nama_desa . '</option>';
             }
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($output));

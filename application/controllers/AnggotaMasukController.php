@@ -45,9 +45,10 @@ class AnggotaMAsukController extends CI_Controller{
             $row[] = $p->jenis_kelamin;
             $row[] = $p->pekerjaan;
             $row[] = $p->alamat;
-            $row[] = $p->desa;
-            $row[] = $p->kecamatan;
-            $row[] = $p->kabupaten;
+            $row[] = $p->nama_desa;
+            $row[] = $p->nama_kecamatan;
+            $row[] = $p->nama_kabupaten;
+            $row[] = $p->nama_provinsi;
             $row[] = $p->tanggal_gabung;
             $row[] = '
 			<button
