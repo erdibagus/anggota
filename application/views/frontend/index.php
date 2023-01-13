@@ -1,203 +1,191 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <title>Anggota - SEKARTAMA</title>
-        <link href='<?= base_url() ?>assets/frontend/css/style.css' rel='stylesheet'>
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
-        <script type='text/javascript' src=''></script>
-        
-    </head>
-    <body className='snippet-body'>
-        <div class="container">
-            <div class="card">
-                <div class="form">
-                    <div class="left-side">
-                        <div class="left-heading">
-                            <h3>SEKARTAMA</h3>
-                        </div>
-                        <div class="steps-content">
-                            <h3>Langkah <span class="step-number">1</span></h3>
-                            <p class="step-number-content active">Isi data diri sesuai KTP</p>
-                            <p class="step-number-content d-none">Alamat Lengkap</p>
-                        </div>
-                        <ul class="progress-bar">
-                            <li class="active">Data diri</li>
-                            <li>Alamat</li>
-                            <li>Bukti transfer</li>
-                        </ul>                     
-                    </div>
-                    <div class="right-side">
-                        <div class="main active">
-                            <img src="<?= base_url()?>assets/images/logoaja.png" alt="avatar" width="50">
-                            <div class="text">
-                                <h2>Form Anggota SEKARTAMA</h2>
-                                <p>Input data sesuai KTP.</p>
-                            </div>
-                            <div class="input-text">
-                                <div class="input-div">
-                                    <input type="text" name="nik" required require>
-                                    <span>NIK</span>
-                                </div>
-                                <div class="input-div"> 
-                                    <input type="text" name="nama" id="user_name" required require>
-                                    <span>Nama</span>
-                                </div>
-                                <select class="form-control" id="provinsi" name="provinsi">
-                                        <option value="">--Pilih--</option>
-                                        <?php foreach ($provinsi as $key => $prov) : ?>
-							<option value="<?= $prov['id']; ?>"><?= $prov['nama_provinsi']; ?></option>
-						<?php endforeach; ?>
-                                    </select>
-                            </div>
-                            <div class="input-text">
-                                <div class="input-div">
-                                    <select name="jenis_kelamin">
-                                        <option value="" hidden>Jenis Kelamin</option>
-                                        <option value="L">Laki-laki</option>
-                                        <option value="P">Perempuan</option>
-                                    </select>
-                                </div>
-                                <div class="input-div">
-                                    <input type="text" name="pekerjaan" required require>
-                                    <span>Pekerjaan</span>
-                                </div>
-                            </div>
-                            <div class="buttons">
-                                <button class="next_button">Next Step</button>
-                            </div>
-                        </div>
-                        <div class="main">
-                            <img src="<?= base_url()?>assets/images/logoaja.png" alt="avatar" width="50" >
-                            <div class="text">
-                                <h2>Form Anggota SEKARTAMA</h2>
-                                <p>Masukkan alamat lengkap.</p>
-                            </div>
-                            <div class="input-text">
-                                <div class="input-div">
-                                    <input type="text" name="alamat" required require>
-                                    <span>Alamat</span></span>
-                                </div>
-                            </div>
-                            <div class="input-text">
-                                <div class="input-div">
-                                    <label for="provinsi">Provinsi</label>
-                                    
-                                </div>
-                                <div class="input-div"> 
-                                    <select name="provinsi">
-                                        <option>Kabupaten/Kota</option>
-                                        <option>BCA</option>
-                                        <option>B-TECH</option>
-                                        <option>BA</option>
-                                        <option>B-COM</option>
-                                        <option>B-SC</option>
-                                        <option>MBA</option>
-                                        <option>MCA</option>
-                                        <option>M-COM</option>
-                                        <option>M-TECH</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="input-text">
-                                <div class="input-div">
-                                    <select>
-                                        <option>Kecamatan</option>
-                                        <option>BCA</option>
-                                        <option>B-TECH</option>
-                                        <option>BA</option>
-                                        <option>B-COM</option>
-                                        <option>B-SC</option>
-                                        <option>MBA</option>
-                                        <option>MCA</option>
-                                        <option>M-COM</option>
-                                        <option>M-TECH</option>
-                                    </select>
-                                </div>
-                                <div class="input-div">
-                                    <select>
-                                        <option>Desa</option>
-                                        <option>BCA</option>
-                                        <option>B-TECH</option>
-                                        <option>BA</option>
-                                        <option>B-COM</option>
-                                        <option>B-SC</option>
-                                        <option>MBA</option>
-                                        <option>MCA</option>
-                                        <option>M-COM</option>
-                                        <option>M-TECH</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="buttons button_space">
-                                <button class="back_button">Back</button>
-                                <button class="next_button">Next Step</button>
-                            </div>
-                        </div>
-                        <div class="main">
-                            <img src="<?= base_url()?>assets/images/logoaja.png" alt="avatar" width="50" >
-                            <div class="text">
-                                <h2>Form Anggota SEKARTAMA</h2>
-                                <p>Lampiran bukti transfer.</p>
-                            </div>
-                            <div class="input-text">
-                                <div class="input-div">
-                                <input type="file" name="lampiran" title="File Gambar dan PDF" id="foto">
-                                    <span>Lampiran</span>
-                                </div>
-                            </div>
-                            <div class="buttons button_space">
-                                <button class="back_button">Back</button>
-                                <button class="submit_button">Submit</button>
-                            </div>
-                        </div>                        
-                        <!-- <div class="main">
-                            <small><i class="fa fa-smile-o"></i></small>
-                            <div class="text">
-                                <h2>User Photo</h2>
-                                <p>Upload your profile picture and share yourself.</p>
-                            </div>
-                            <div class="user_card">
-                                <span></span>
-                                <div class="circle">
-                                    <span><img src="https://i.imgur.com/hnwphgM.jpg"></span>
-                                    
-                                </div>
-                                <div class="social">
-                                    <span><i class="fa fa-share-alt"></i></span>
-                                    <span><i class="fa fa-heart"></i></span>
-                                    
-                                </div>
-                                <div class="user_name">
-                                    <h3>Peter Hawkins</h3>
-                                    <div class="detail">
-                                        <p><a href="#">Izmar,Turkey</a>Hiring</p>
-                                        <p>17 last day . 94Apply</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="buttons button_space">
-                                <button class="back_button">Back</button>
-                                <button class="submit_button">Submit</button>
-                            </div>
-                        </div> -->
-                        <div class="main">
-                            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                            </svg>
-                            
-                            <div class="text congrats">
-                                <h2>Selamat!</h2>
-                                <p>Terimakasih Bapak/Ibu. <span class="shown_name"></span> informasi Anda masukkan telah berhasil dikirimkan, kami akan segera menghubungi Anda.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script type='text/javascript' src='<?= base_url()?>assets/frontend/js/main.js'></script>
-                          
-    </body>
-</html>
+<div class="container tengah">
+		<div class="text-center mb-2">
+				<img src="<?= base_url() ?>assets/images/logo/sekartama.png" alt="branding logo">
+		</div>
+		<div class="box-shadow-5">
+			<?php
+			if ($this->session->flashdata('alert') == 'tambah_anggota'):
+				?>
+				<div class="alert alert-success alert-dismissible animated fadeInDown" id="feedback" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					Data berhasil ditambahkan
+				</div>
+			<?php
+			elseif ($this->session->flashdata('form_error')):
+				?>
+				<div class="alert alert-warning alert-dismissible animated fadeInDown" id="feedback" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					NIK sudah terdaftar
+				</div>
+			<?php
+			endif;
+			?>
+			
+			<div class="card-header center">
+				<button type="button" class="btn btn-primary btn-bg-gradient-x-red-pink box-shadow-2"
+						data-toggle="modal" data-target="#bootstrap">
+						Pendaftaran Anggota
+				</button>
+			</div>
+		</div>
+		</div>
+
+
+<!-- Modal tambah -->
+<div class="modal fade text-left" id="bootstrap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
+	 aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header bg-gradient-x-purple-red">
+				<h3 class="modal-title text-white font-weight-bold" id="myModalLabel35"> Form Pendaftaran Anggota</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span class="text-white" aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<?= form_open('anggota_masuk/tambah') ?>
+			<div class="modal-body">
+				<fieldset class="form-group floating-label-form-group">
+					<label for="nik">NIK</label>
+					<input type="number" class="form-control" name="nik" id="nik" placeholder="NIK"
+						   autocomplete="off" required>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="nama">Nama</label>
+					<input type="text" class="form-control" name="nama" id="nama" placeholder="Nama anggota"
+						   autocomplete="off" required>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="jenis_kelamin">Jenis Kelamin</label>
+					<select name="jenis_kelamin" id="basicSelect" class="form-control" required>
+						<option value="">--Pilih--</option>
+						<option value="L">Laki Laki</option>
+						<option value="P">Perempuan</option>
+					</select>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="pekerjaan">Pekerjaan</label>
+					<input type="text" class="form-control" name="pekerjaan" id="pekerjaan" placeholder="Pekerjaan"
+						   autocomplete="off" required>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+					<label for="alamat">Alamat</label>
+					<textarea class="form-control" id="alamat" rows="3" name="alamat" placeholder="Alamat"
+							  autocomplete="off" required></textarea>
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
+				<label for="provinsi">Provinsi</label>
+                            <select class="form-control" id="provinsi" name="provinsi">
+                                <option value="">--Pilih--</option>
+                                <?php foreach ($provinsi as $prov) : ?>
+                                    <option value="<?= $prov['id']; ?>"><?= $prov['nama_provinsi']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+				</fieldset>
+				
+					<div class="form-group">
+						<label for="kabupaten">Kabupaten/Kota</label>
+						<select class="form-control" id="kabupaten" name="kabupaten">
+							<option value="">--Pilih--</option>
+						</select>
+					</div>
+				
+				
+					<div class="form-group">
+						<label for="kecamatan">Kecamatan</label>
+						<select class="form-control" id="kecamatan" name="kecamatan">
+							<option value="">--Pilih--</option>
+						</select>
+					</div>
+				
+					<div class="form-group">
+						<label for="desa">Desa</label>
+						<select class="form-control" id="desa" name="desa">
+							<option value="">--Pilih--</option>
+						</select>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<input type="reset" class="btn btn-secondary btn-bg-gradient-x-red-pink" data-dismiss="modal"
+					   value="Tutup">
+				<input type="submit" class="btn btn-primary btn-bg-gradient-x-blue-cyan" name="simpan" value="Daftar">
+			</div>
+			<?= form_close() ?>
+		</div>
+	</div>
+</div>
+
+<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
+<?php if($this->session->flashdata('Pesan')): ?>
+<?= $this->session->flashdata('Pesan') ?>
+<?php else: ?>
+<script>
+$(document).ready(function() {
+    let timerInterval
+    Swal.fire({
+        title: 'Selamat Datang',
+        timer: 1000,
+        onBeforeOpen: () => {
+            Swal.showLoading()
+        },
+        onClose: () => {
+            clearInterval(timerInterval)
+        }
+    }).then((result) => {
+
+    })
+});
+</script>
+<?php endif; ?>
+
+<script>
+    $(document).ready(function() {
+        $('#provinsi').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getKabupaten') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#kabupaten').html(response);
+                }
+            });
+        });
+
+        $('#kabupaten').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getKecamatan') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#kecamatan').html(response);
+                }
+            });
+        });
+
+        $('#kecamatan').change(function() {
+            var id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('WilayahController/getDesa') ?>",
+                data: {
+                    id: id
+                },
+                dataType: "JSON",
+                success: function(response) {
+                    $('#desa').html(response);
+                }
+            });
+        });
+    });
+</script>

@@ -10,6 +10,7 @@ class AnggotaMAsukController extends CI_Controller{
 		$helper = array('tgl_indo_helper');
 		$this->load->model($model);
 		$this->load->helper($helper);
+		$this->load->library('form_validation');
 		if (!$this->session->has_userdata('session_id')) {
 			$this->session->set_flashdata('alert', 'belum_login');
 			redirect(base_url('login'));
@@ -18,7 +19,7 @@ class AnggotaMAsukController extends CI_Controller{
 
 	private function _validasi()
     {
-        $this->form_validation->set_rules('anggota_id', 'NIK', 'required|trim|is_unique[anggota.anggota_id]');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[anggota.anggota_id]');
     }
 
 	public function index(){
@@ -83,12 +84,18 @@ class AnggotaMAsukController extends CI_Controller{
         $this->_validasi();
 
         if ($this->form_validation->run() == false) {
-            $data['title'] = "Registrasi";
+            $data = array(
+				'provinsi' => $this->WilayahModel->getDataProv(),
+				'title' => 'Registrasi'
+			);
+			
+			$errors = validation_errors();
+           	$this->session->set_flashdata('form_error', $errors);
 
 			$this->load->view('frontend/index',$data);
         } else {
             if (isset($_POST['tambah'])){
-				$id = $this->input->post('anggota_id');
+				$id = $this->input->post('nik');
 				$nama = $this->input->post('nama');
 				$jenis_kelamin = $this->input->post('jenis_kelamin');
 				$pekerjaan = $this->input->post('pekerjaan');
@@ -96,7 +103,7 @@ class AnggotaMAsukController extends CI_Controller{
 				$desa = $this->input->post('desa');
 				$kecamatan = $this->input->post('kecamatan');
 				$kabupaten = $this->input->post('kabupaten');
-				$tanggal_gabung = $this->input->post('tanggal_gabung');
+				$tanggal_gabung = date('Y-m-d');
 				$status = 0;
 				$data = array(
 					'anggota_id' => $id,
@@ -113,10 +120,10 @@ class AnggotaMAsukController extends CI_Controller{
 				$save = $this->AnggotaMasukModel->tambah_anggota($data);
 				if ($save>0){
 					$this->session->set_flashdata('alert', 'tambah_anggota');
-					redirect('index');
+					redirect('welcome');
 				}
 				else{
-					redirect('index');
+					redirect('welcome');
 				}
 			}
         }

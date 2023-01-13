@@ -17,15 +17,6 @@ class KantorModel extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function lihat_prov()
-    {
-        $this->db->select('*');
-        $this->db->from('wilayah_provinsi');
-        $this->db->order_by('nama_provinsi', 'ASC');
-        $query = $this->db->get();
-		return $query->result_array();
-    }
-
 	public function tambah_kantor($data){
 		$this->db->insert('kantor', $data);
 		return $this->db->affected_rows();
