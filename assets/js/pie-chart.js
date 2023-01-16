@@ -38,7 +38,7 @@ function grafikPie(L, P) {
             labels: ["Laki-laki", "Perempuan"],
             datasets: [{
                 data: [L, P],
-                backgroundColor: ['#3CB371', '#FFA500'],
+                backgroundColor: ['#32CD32', '#FFA500'],
                 hoverBackgroundColor: ['#008080', '#008080'],
                 hoverBorderColor: "rgba(234, 236, 244, 1)",
             }],

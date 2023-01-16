@@ -18,7 +18,7 @@
 					<span class="text-white" aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<?= form_open('anggota_masuk/tambah') ?>
+			<form action="<?= base_url() ?>anggota_masuk/tambah" method="POST" enctype="multipart/form-data">
 			<div class="modal-body">
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nik">NIK</label>
@@ -50,42 +50,42 @@
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
 				<label for="provinsi">Provinsi</label>
-                            <select class="form-control" id="provinsi" name="provinsi">
+                            <select class="form-control" id="provinsi" name="provinsi" required>
                                 <option value="">--Pilih--</option>
                                 <?php foreach ($provinsi as $prov) : ?>
                                     <option value="<?= $prov['id']; ?>"><?= $prov['nama_provinsi']; ?></option>
                                 <?php endforeach; ?>
                             </select>
 				</fieldset>
-				
-					<div class="form-group">
+				<fieldset class="form-group floating-label-form-group">
 						<label for="kabupaten">Kabupaten/Kota</label>
-						<select class="form-control" id="kabupaten" name="kabupaten">
+						<select class="form-control" id="kabupaten" name="kabupaten" required>
 							<option value="">--Pilih--</option>
 						</select>
-					</div>
-				
-				
-					<div class="form-group">
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
 						<label for="kecamatan">Kecamatan</label>
-						<select class="form-control" id="kecamatan" name="kecamatan">
+						<select class="form-control" id="kecamatan" name="kecamatan" required>
 							<option value="">--Pilih--</option>
 						</select>
-					</div>
-				
-					<div class="form-group">
+				</fieldset>
+				<fieldset class="form-group floating-label-form-group">
 						<label for="desa">Desa</label>
-						<select class="form-control" id="desa" name="desa">
+						<select class="form-control" id="desa" name="desa" required>
 							<option value="">--Pilih--</option>
 						</select>
-					</div>
-			</div>
-			<div class="modal-footer">
+				</fieldset>
+				<!-- <fieldset class="form-group floating-label-form-group">
+					<label for="lampiran">Lampiran</label>
+						<input class="form-control" type="file" name="lampiran" required>
+				</fieldset> -->
+				</div>
+				<div class="modal-footer">
 				<input type="reset" class="btn btn-secondary btn-bg-gradient-x-red-pink" data-dismiss="modal"
 					   value="Tutup">
 				<input type="submit" class="btn btn-primary btn-bg-gradient-x-blue-cyan" name="simpan" value="Daftar">
 			</div>
-			<?= form_close() ?>
+			</form>
 		</div>
 	</div>
 </div>

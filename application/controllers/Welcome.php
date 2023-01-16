@@ -16,6 +16,15 @@ class Welcome extends CI_Controller {
         $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[anggota.anggota_id]|min_length[16]');
     }
 
+	private function _config()
+    {
+        $config['upload_path']      = "./assets/images/lampiran";
+        $config['allowed_types']    = 'gif|jpg|jpeg|png';
+        //$config['max_size']         = '2048';
+
+        $this->load->library('upload', $config);
+    }
+
 	public function index()
 	{
 		$data = array(
@@ -30,6 +39,7 @@ class Welcome extends CI_Controller {
 	public function tambah()
     {
         $this->_validasi();
+		$this->_config();
 
         if ($this->form_validation->run() == false) {
             $data = array(
@@ -65,6 +75,11 @@ class Welcome extends CI_Controller {
 				$provinsi = $this->input->post('provinsi');
 				$tanggal_gabung = date('Y-m-d');
 				$status = 0;
+				// $lampiran= $this->input->post('lampiran');
+
+				
+
+
 				$data = array(
 					'anggota_id' => $id,
 					'nama' => $nama,
@@ -77,6 +92,7 @@ class Welcome extends CI_Controller {
 					'provinsi' => $provinsi,
 					'tanggal_gabung' => $tanggal_gabung,
 					'status' => $status
+					// 'lampiran' => $lampiran
 				);
 				$save = $this->AnggotaMasukModel->tambah_anggota($data);
 				if ($save>0){
