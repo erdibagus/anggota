@@ -73,14 +73,9 @@
 </head>
 
 <style>
-.center {
-  text-align:center; /* posisi di tengah secara horizontal */
-}
-
 .tengah {
-        margin: 100px auto;
-        width: 400px;
-        padding: 10px;
+	margin: 200px auto;
+	width: 200px;
     }
 </style>
 <!-- END: Head-->
@@ -88,10 +83,3 @@
 <!-- BEGIN: Body-->
 <body>
 
-<!-- BEGIN: Content-->
-<div class="app-content content">
-	<div class="content-wrapper">
-		<div class="content-wrapper-before"></div>
-		<div class="content-header row">
-		</div>
-		<div class="content-body"><!-- Revenue, Hit Rate & Deals -->

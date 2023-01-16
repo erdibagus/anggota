@@ -1,38 +1,16 @@
-<div class="container tengah">
+<div class="tengah text-center">
 		<div class="text-center mb-2">
 				<img src="<?= base_url() ?>assets/images/logo/sekartama.png" alt="branding logo">
 		</div>
-		<div class="box-shadow-5">
-			<?php
-			if ($this->session->flashdata('alert') == 'tambah_anggota'):
-				?>
-				<div class="alert alert-success alert-dismissible animated fadeInDown" id="feedback" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					Data berhasil ditambahkan
-				</div>
-			<?php
-			elseif ($this->session->flashdata('form_error')):
-				?>
-				<div class="alert alert-warning alert-dismissible animated fadeInDown" id="feedback" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					NIK sudah terdaftar
-				</div>
-			<?php
-			endif;
-			?>
+		
 			
-			<div class="card-header center">
-				<button type="button" class="btn btn-primary btn-bg-gradient-x-red-pink box-shadow-2"
+				<button type="button" class="btn btn-primary text-center btn-bg-gradient-x-red-pink box-shadow-5"
 						data-toggle="modal" data-target="#bootstrap">
 						Pendaftaran Anggota
 				</button>
-			</div>
-		</div>
-		</div>
+			
+		
+	</div>
 
 
 <!-- Modal tambah -->

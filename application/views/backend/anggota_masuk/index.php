@@ -108,7 +108,11 @@
 					<input type="text" class="form-control" id="lihat_kabupaten" placeholder="Kabupaten"
 						   autocomplete="off" readonly>
 				</fieldset>
-				
+				<fieldset class="form-group floating-label-form-group">
+					<label for="kabupaten">Provinsi</label>
+					<input type="text" class="form-control" id="lihat_provinsi" placeholder="Kabupaten"
+						   autocomplete="off" readonly>
+				</fieldset>
 					
 					<input type="text" class="form-control" id="lihat_provinsi" placeholder="Provinsi"
 						   autocomplete="off" hidden>
