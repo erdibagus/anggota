@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
 
 	private function _validasi()
     {
-        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[anggota.anggota_id]');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[anggota.anggota_id]|min_length[16]');
     }
 
 	public function index()
@@ -41,8 +41,7 @@ class Welcome extends CI_Controller {
 			<script>
 			$(document).ready(function() {
 				swal.fire({
-					title: "NIK Sudah Terdaftar",
-					text: "Silahkan gunakan NIK yang lain",
+					title: "NIK Salah atau Sudah Terdaftar",
 					icon: "warning",
 					confirmButtonColor: "#008080",
 				});

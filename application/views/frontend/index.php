@@ -1,18 +1,12 @@
 <div class="tengah text-center">
-		<div class="text-center mb-2">
-				<img src="<?= base_url() ?>assets/images/logo/sekartama.png" alt="branding logo">
-		</div>
-		
-			
-				<button type="button" class="btn btn-primary text-center btn-bg-gradient-x-red-pink box-shadow-5"
-						data-toggle="modal" data-target="#bootstrap">
-						Pendaftaran Anggota
-				</button>
-			
-		
+	<div class="text-center mb-2">
+			<img src="<?= base_url() ?>assets/images/logo/sekartama.png" alt="branding logo">
 	</div>
-
-
+		<button type="button" class="btn btn-primary text-center btn-bg-gradient-x-red-pink box-shadow-5"
+				data-toggle="modal" data-target="#bootstrap">
+				Pendaftaran Anggota
+		</button>
+</div>
 <!-- Modal tambah -->
 <div class="modal fade text-left" id="bootstrap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35"
 	 aria-hidden="true">

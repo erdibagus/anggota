@@ -93,8 +93,7 @@ $route['gaji/bayar/(:any)'] = 'GajiController/bayar/$1';
 $route['gaji/pinjam/(:any)'] = 'GajiController/pinjam/$1';
 $route['gaji/detail/(:any)'] = 'GajiController/detail/$1';
 
-$route['kabupaten'] = 'WilayahController/getKabupaten';
-$route['pinjam/tambah'] = 'PinjamController/tambah';
+$route['getPie'] = 'DashboardController/getPie';
 
 $route['laporan'] = 'LaporanController';
 $route['laporan/lihat/(:any)/(:any)'] = 'LaporanController/lihat/$1/$2';

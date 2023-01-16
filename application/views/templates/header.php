@@ -153,6 +153,7 @@
 					href="<?= base_url('anggota') ?>"><i class="ft-user-check"></i><span class="menu-title"
 																					   data-i18n="">Anggota</span></a>
 			</li>
+			<?php if ($this->session->userdata('session_hak_akses') == 'admin'):?>
 			<li class=" nav-item <?php if ($this->uri->segment(1) == 'anggota_masuk') echo 'active' ?>"><a
 					href="<?= base_url('anggota_masuk') ?>"><i class="ft-user-plus"></i><span class="menu-title"
 																					   data-i18n="">Anggota Masuk</span></a>
@@ -165,6 +166,7 @@
 					href="<?= base_url('user') ?>"><i class="ft-users"></i><span class="menu-title"
 																					data-i18n="">User</span></a>
 			</li>
+			<?php endif?>
 			<!-- <li class=" nav-item <?php if ($this->uri->segment(1) == 'pinjam') echo 'active' ?>"><a
 					href="<?= base_url('pinjam') ?>"><i class="ft-calendar"></i><span class="menu-title"
 																					  data-i18n="">Pinjaman</span></a>

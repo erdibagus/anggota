@@ -14,4 +14,18 @@ class DashboardModel extends CI_Model{
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
+
+	public function jumlah_anggota_laki(){
+		$this->db->from('anggota');
+		$this->db->where('jenis_kelamin', 'L');
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
+	public function jumlah_anggota_perempuan(){
+		$this->db->from('anggota');
+		$this->db->where('jenis_kelamin', 'P');
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 }
