@@ -18,11 +18,12 @@
 					<span class="text-white" aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url() ?>anggota_masuk/tambah" method="POST" enctype="multipart/form-data">
+			<?= form_open_multipart('anggota_masuk/tambah'); ?>
+			<!-- <form action="<?= base_url() ?>anggota_masuk/tambah" method="POST" enctype="multipart/form-data"> -->
 			<div class="modal-body">
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nik">NIK</label>
-					<input type="number" class="form-control" name="nik" id="nik" placeholder="NIK"
+					<input type="number" class="form-control" name="anggota_id" id="nik" placeholder="NIK"
 						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">
@@ -75,17 +76,18 @@
 							<option value="">--Pilih--</option>
 						</select>
 				</fieldset>
-				<!-- <fieldset class="form-group floating-label-form-group">
+				<fieldset class="form-group floating-label-form-group">
 					<label for="lampiran">Lampiran</label>
-						<input class="form-control" type="file" name="lampiran" required>
-				</fieldset> -->
+						<input type="file" name="lampiran" title="File Gambar dan PDF" id="lampiran">
+				</fieldset>
 				</div>
 				<div class="modal-footer">
 				<input type="reset" class="btn btn-secondary btn-bg-gradient-x-red-pink" data-dismiss="modal"
 					   value="Tutup">
-				<input type="submit" class="btn btn-primary btn-bg-gradient-x-blue-cyan" name="simpan" value="Daftar">
+				<input type="submit" class="btn btn-primary btn-bg-gradient-x-blue-cyan" value="Daftar">
 			</div>
-			</form>
+			<!-- </form> -->
+			<?= form_close(); ?>
 		</div>
 	</div>
 </div>

@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
 
 	private function _validasi()
     {
-        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[anggota.anggota_id]|min_length[16]');
+        $this->form_validation->set_rules('anggota_id', 'NIK', 'required|trim|is_unique[anggota.anggota_id]|min_length[16]');
     }
 
 	private function _config()
@@ -36,10 +36,108 @@ class Welcome extends CI_Controller {
 		$this->load->view('templates/footer_front');
     }
 
+	// public function tambah()
+    // {
+    //     $this->_validasi();
+
+    //     if ($this->form_validation->run() == false) {
+    //         $data = array(
+	// 			'provinsi' => $this->WilayahModel->getDataProv(),
+	// 			'title' => 'Pendaftaran'
+	// 		);
+			
+	// 		$this->session->set_flashdata('Pesan','
+	// 		<script>
+	// 		$(document).ready(function() {
+	// 			swal.fire({
+	// 				title: "NIK Salah atau Sudah Terdaftar",
+	// 				icon: "warning",
+	// 				confirmButtonColor: "#008080",
+	// 			});
+	// 		});
+	// 		</script>
+	// 		');
+
+	// 		$this->load->view('templates/header_front', $data);
+	// 		$this->load->view('frontend/index', $data);
+	// 		$this->load->view('templates/footer_front');
+    //     } else {
+    //         if (isset($_POST['simpan'])){
+	// 			$config['upload_path']   = FCPATH.'/assets/js/';
+	// 			$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF';
+			
+	// 			$namaFile = $_FILES['photo']['name'];
+	// 			$error = $_FILES['photo']['error'];
+		
+	// 			$this->load->library('upload', $config);
+
+	// 			$id = $this->input->post('nik');
+	// 			$nama = $this->input->post('nama');
+	// 			$jenis_kelamin = $this->input->post('jenis_kelamin');
+	// 			$pekerjaan = $this->input->post('pekerjaan');
+	// 			$alamat = $this->input->post('alamat');
+	// 			$desa = $this->input->post('desa');
+	// 			$kecamatan = $this->input->post('kecamatan');
+	// 			$kabupaten = $this->input->post('kabupaten');
+	// 			$provinsi = $this->input->post('provinsi');
+	// 			$tanggal_gabung = date('Y-m-d');
+	// 			$status = 0;
+				
+	// 			if ($namaFile == '') {
+	// 				$ganti = 'lampiran.png';
+	// 		  	}else{
+	// 				if (! $this->upload->do_upload('photo')) {
+	// 					$error = $this->upload->display_errors();
+	// 					redirect('welcome');
+	// 					}
+	// 				else{
+	// 					$data = array('photo' => $this->upload->data());
+	// 					$nama_file= $data['photo']['file_name'];
+	// 					$ganti = str_replace(" ", "_", $nama_file);
+	// 				}
+	// 		  	}
+
+	// 			$data = array(
+	// 				'anggota_id' => $id,
+	// 				'nama' => $nama,
+	// 				'jenis_kelamin' => $jenis_kelamin,
+	// 				'pekerjaan' => $pekerjaan,
+	// 				'alamat' => $alamat,
+	// 				'desa' => $desa,
+	// 				'kecamatan' => $kecamatan,
+	// 				'kabupaten' => $kabupaten,
+	// 				'provinsi' => $provinsi,
+	// 				'tanggal_gabung' => $tanggal_gabung,
+	// 				'status' => $status,
+	// 				'lampiran' => $ganti
+	// 			);
+	// 			$save = $this->AnggotaMasukModel->tambah_anggota($data, 'anggota');
+	// 			if ($save>0){
+	// 				$this->session->set_flashdata('Pesan','
+	// 				<script>
+	// 				$(document).ready(function() {
+	// 					swal.fire({
+	// 						title: "Terimakasih",
+	// 						text: "Informasi yang Anda masukkan telah berhasil dikirimkan, kami akan segera menghubungi Anda",
+	// 						icon: "success",
+	// 						confirmButtonColor: "#008080",
+	// 					});
+	// 				});
+	// 				</script>
+	// 				');
+	// 				redirect('welcome');
+	// 			}
+	// 			else{
+	// 				redirect('welcome');
+	// 			}
+	// 		}
+    //     }
+    // }
+
 	public function tambah()
     {
         $this->_validasi();
-		$this->_config();
+        $this->_config();
 
         if ($this->form_validation->run() == false) {
             $data = array(
@@ -63,40 +161,15 @@ class Welcome extends CI_Controller {
 			$this->load->view('frontend/index', $data);
 			$this->load->view('templates/footer_front');
         } else {
-            if (isset($_POST['simpan'])){
-				$id = $this->input->post('nik');
-				$nama = $this->input->post('nama');
-				$jenis_kelamin = $this->input->post('jenis_kelamin');
-				$pekerjaan = $this->input->post('pekerjaan');
-				$alamat = $this->input->post('alamat');
-				$desa = $this->input->post('desa');
-				$kecamatan = $this->input->post('kecamatan');
-				$kabupaten = $this->input->post('kabupaten');
-				$provinsi = $this->input->post('provinsi');
-				$tanggal_gabung = date('Y-m-d');
-				$status = 0;
-				// $lampiran= $this->input->post('lampiran');
 
-				
+			$input = $this->input->post(null, true);
+            
+           
+            
+            $insert = $this->AnggotaMasukModel->tambah_anggota('anggota', $input);
 
-
-				$data = array(
-					'anggota_id' => $id,
-					'nama' => $nama,
-					'jenis_kelamin' => $jenis_kelamin,
-					'pekerjaan' => $pekerjaan,
-					'alamat' => $alamat,
-					'desa' => $desa,
-					'kecamatan' => $kecamatan,
-					'kabupaten' => $kabupaten,
-					'provinsi' => $provinsi,
-					'tanggal_gabung' => $tanggal_gabung,
-					'status' => $status
-					// 'lampiran' => $lampiran
-				);
-				$save = $this->AnggotaMasukModel->tambah_anggota($data);
-				if ($save>0){
-					$this->session->set_flashdata('Pesan','
+            if ($insert) {
+                $this->session->set_flashdata('Pesan','
 					<script>
 					$(document).ready(function() {
 						swal.fire({
@@ -109,11 +182,23 @@ class Welcome extends CI_Controller {
 					</script>
 					');
 					redirect('welcome');
-				}
-				else{
+            } else {
+                $this->session->set_flashdata('Pesan','
+					<script>
+					$(document).ready(function() {
+						swal.fire({
+							title: "Gagal",
+							text: "Informasi yang Anda masukkan telah berhasil dikirimkan, kami akan segera menghubungi Anda",
+							icon: "success",
+							confirmButtonColor: "#008080",
+						});
+					});
+					</script>
+					');
 					redirect('welcome');
-				}
-			}
+            }
+			
+           
         }
     }
 

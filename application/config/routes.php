@@ -65,13 +65,6 @@ $route['anggota_masuk/update'] = 'AnggotaMasukController/update';
 $route['anggota_masuk/hapus/(:any)'] = 'AnggotaController/hapus/$1';
 $route['anggota_masuk/ajax_list'] = 'AnggotaMasukController/ajax_list';
 
-$route['karyawan'] = 'KaryawanController';
-$route['karyawan/tambah'] = 'KaryawanController/tambah';
-$route['karyawan/lihat/(:any)'] = 'KaryawanController/lihat/$1';
-$route['karyawan/update'] = 'KaryawanController/update';
-$route['karyawan/hapus/(:any)'] = 'KaryawanController/hapus/$1';
-$route['karyawan/ajaxIndex'] = 'KaryawanController/ajaxIndex';
-
 $route['user'] = 'UserController';
 $route['user/lihat/(:any)'] = 'UserController/lihat/$1';
 $route['user/tambah'] = 'UserController/tambah';
@@ -85,13 +78,6 @@ $route['kantor/tambah'] = 'KantorController/tambah';
 $route['kantor/updateForm/(:any)'] = 'KantorController/updateForm/$1';
 $route['kantor/update'] = 'KantorController/update';
 $route['kantor/hapus/(:any)'] = 'KantorController/hapus/$1';
-$route['absen/lembur/(:any)'] = 'AbsenController/lembur/$1';
-
-$route['gaji'] = 'GajiController';
-$route['gaji/lihat/(:any)'] = 'GajiController/lihat/$1';
-$route['gaji/bayar/(:any)'] = 'GajiController/bayar/$1';
-$route['gaji/pinjam/(:any)'] = 'GajiController/pinjam/$1';
-$route['gaji/detail/(:any)'] = 'GajiController/detail/$1';
 
 $route['getPie'] = 'DashboardController/getPie';
 

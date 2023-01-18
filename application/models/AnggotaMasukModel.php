@@ -90,10 +90,20 @@ class AnggotaMasukModel extends CI_Model{
 		return $query->result_array();
 	}
 
-	public function tambah_anggota($data){
-		$this->db->insert('anggota', $data);
-		return $this->db->affected_rows();
-	}
+    // public function tambah_anggota($data, $table)
+    // {
+    //    $this->db->insert($table, $data);
+    // }
+
+    public function tambah_anggota($table, $data, $batch = false)
+    {
+        return $batch ? $this->db->insert_batch($table, $data) : $this->db->insert($table, $data);
+    }
+
+	// public function tambah_anggota($data){
+	// 	$this->db->insert('anggota', $data);
+	// 	return $this->db->affected_rows();
+	// }
 
 	public function lihat_satu_anggota($id){
 		$this->db->select('*');
