@@ -13,7 +13,7 @@ class Welcome extends CI_Controller {
 
 	private function _validasi()
     {
-        $this->form_validation->set_rules('anggota_id', 'NIK', 'required|trim|is_unique[anggota.anggota_id]|min_length[16]');
+        $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[anggota.anggota_id]|min_length[16]');
     }
 
 	private function _config()
