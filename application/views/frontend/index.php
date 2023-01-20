@@ -23,7 +23,7 @@
 			<div class="modal-body">
 				<fieldset class="form-group floating-label-form-group">
 					<label for="nik">NIK</label>
-					<input type="number" class="form-control" name="anggota_id" id="nik" placeholder="NIK"
+					<input type="number" class="form-control" name="nik" id="nik" placeholder="NIK"
 						   autocomplete="off" required>
 				</fieldset>
 				<fieldset class="form-group floating-label-form-group">

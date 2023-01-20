@@ -62,7 +62,7 @@ $route['anggota/ajax_list'] = 'AnggotaController/ajax_list';
 $route['anggota_masuk'] = 'AnggotaMasukController';
 $route['anggota_masuk/tambah'] = 'Welcome/tambah';
 $route['anggota_masuk/update'] = 'AnggotaMasukController/update';
-$route['anggota_masuk/hapus/(:any)'] = 'AnggotaController/hapus/$1';
+$route['anggota_masuk/hapus/(:any)'] = 'AnggotaMasukController/hapus/$1';
 $route['anggota_masuk/ajax_list'] = 'AnggotaMasukController/ajax_list';
 
 $route['user'] = 'UserController';

@@ -63,11 +63,11 @@ class Welcome extends CI_Controller {
 			$this->load->view('templates/footer_front');
         } else {
             if (isset($_POST['simpan'])){
-				$config['upload_path']   = FCPATH.'/assets/js/';
+				$config['upload_path']   = '/assets/images/lampiran/';
 				$config['allowed_types'] = 'png|jpg|JPG|jpeg|JPEG|gif|GIF|tif|TIF||tiff|TIFF';
 			
-				$namaFile = $_FILES['photo']['name'];
-				$error = $_FILES['photo']['error'];
+				$namaFile = $_FILES['lampiran']['name'];
+				$error = $_FILES['lampiran']['error'];
 		
 				$this->load->library('upload', $config);
 
@@ -91,8 +91,8 @@ class Welcome extends CI_Controller {
 						redirect('welcome');
 						}
 					else{
-						$data = array('photo' => $this->upload->data());
-						$nama_file= $data['photo']['file_name'];
+						$data = array('lampiran' => $this->upload->data());
+						$nama_file= $data['lampiran']['file_name'];
 						$ganti = str_replace(" ", "_", $nama_file);
 					}
 			  	}

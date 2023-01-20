@@ -209,7 +209,7 @@ var table;
 
 function konfirmasi(id) {
 	var html = '' +
-			'<a href="anggota/hapus/'+id+'" class="btn btn-danger btn-bg-gradient-x-red-pink">Hapus</a>';
+			'<a href="anggota_masuk/hapus/'+id+'" class="btn btn-danger btn-bg-gradient-x-red-pink">Hapus</a>';
 		$('#hapusanggota').html(html);
 	}
 
